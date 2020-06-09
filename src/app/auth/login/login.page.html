@@ -1,0 +1,62 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>Inicia Sesión</ion-title>
+    </ion-toolbar>
+    <div class="header-container">
+        <h1>ActEarly</h1>
+        <p>Sigamos el desarrollo...</p>
+    </div>
+</ion-header>
+
+<ion-content>
+
+    <ion-row class="Logo">
+        <ion-col>
+            <img class="displayed"  height="150 px" width="150 px" src="/assets/image/act_early_logo.jpg">
+        </ion-col>
+    </ion-row>
+
+    <h6 class="header">
+        Ingresa tus datos para iniciar sesión.
+    </h6>
+
+    <form [formGroup]="logInForm">
+        <ion-grid>
+            <ion-row>
+                <ion-col size="12">
+                    <ion-item>
+                        <ion-input formControlName="email" placeholder="Correo electrónico"></ion-input>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col size="12">
+                    <ion-item class="password">
+                        <ion-input formControlName="password" placeholder="Contraseña"
+                            [type]="showPassword ? 'text' : 'password'" clearOnEdit="false"></ion-input>
+                        <ion-button (click)="onPasswordToggle()" fill="clear">
+                            <ion-icon [name]="showPassword ? 'eye-off-outline' : 'eye-outline'"></ion-icon>
+                        </ion-button>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+            <ion-row class="login">
+                <ion-col size="12">
+                    <ion-button size="small" expand="full" fill="solid" color="primary" (click)="onSubmit()">Iniciar
+                        Sesión
+                    </ion-button>
+                    <ion-button size="small" class="forget" expand="full" fill="none" color="primary">¿Olvidaste tu
+                        Contraseña?</ion-button>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </form>
+
+</ion-content>
+
+<ion-footer>
+    <ion-toolbar>
+        <ion-button color="success" (click)="goToSignUp()" expand="full" fill="solid">¿Nuevo por aquí? ¡Crea una cuenta!
+        </ion-button>
+    </ion-toolbar>
+</ion-footer>

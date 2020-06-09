@@ -1,0 +1,109 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>Crear una cuenta</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class="header-container">
+        <h3>¡Registrate para comenzar el seguimiento del desarrollo de tus hijos! </h3>
+    </div>
+
+    <form [formGroup]="signUpForm">
+        <ion-grid>
+            <ion-label>Ingresa tu información personal</ion-label>
+            <ion-row>
+                <ion-col size="12">
+                    <ion-item>
+                        <ion-label position="floating">Nombre</ion-label>
+                        <ion-input formControlName="fname" placeholder="Nombre"></ion-input>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+
+            <ion-row>
+                <ion-col size="12">
+                    <ion-item>
+                        <ion-label position="floating">Apellido</ion-label>
+                        <ion-input formControlName="lname" placeholder="Apellido"></ion-input>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+
+
+            <ion-row>
+                <ion-col size="12">
+                    <ion-item>
+                        <ion-label>Fecha de nacimiento </ion-label>
+                        <ion-datetime formControlName="birthdate" value="1990-02-19" placeholder="Select Date"></ion-datetime>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+
+            <ion-row>
+                <ion-col size="12">
+                    <ion-item>
+                        <ion-label position="floating">Numero de contacto</ion-label>
+                        <ion-input formControlName="phone" type="text" name="phone" placeholder="(664)-123-45-67"></ion-input>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+
+            <ion-row>
+                <ion-col size="12">
+                    <ion-item>
+                        <ion-label position="floating">Nombre de usuario</ion-label>
+                        <ion-input formControlName="username" placeholder="Nombre de usuario"></ion-input>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+
+            <ion-row>
+                <ion-col size="12">
+                    <ion-item>
+                        <ion-label position="floating">Ingresa tu correo electronico</ion-label>
+                        <ion-input formControlName="email" placeholder="Correo electronico"></ion-input>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+
+            <ion-row>
+                <ion-col size="12">
+                    <ion-item class="password">
+                        <ion-input formControlName="password" placeholder="Contraseña"
+                            [type]="showPassword ? 'text' : 'password'" clearOnEdit="false"></ion-input>
+                        <ion-button (click)="onPasswordToggle()" fill="clear">
+                            <ion-icon [name]="showPassword ? 'eye-off-outline' : 'eye-outline'"></ion-icon>
+                        </ion-button>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+
+            <ion-row>
+                <ion-col size="12">
+                    <ion-item class="password">
+                        <ion-input formControlName="confirmPassword" placeholder="Confirmar contraseña"
+                            [type]="showConfirmedPassword ? 'text' : 'password'" clearOnEdit="false"></ion-input>
+                        <ion-button (click)="onConfirmPasswordToggle()" fill="clear">
+                            <ion-icon [name]="showConfirmedPassword ? 'eye-off-outline' : 'eye-outline'"></ion-icon>
+                        </ion-button>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+
+            <ion-row>
+                <ion-col size="12">
+                    <ion-button color="primary" expand="full" fill="solid" (click)="onSubmit()">Registrarse
+                    </ion-button>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </form>
+</ion-content>
+
+<ion-footer>
+    <ion-toolbar>
+        <ion-button color="success" (click)="goToLogin()" expand="full" fill="solid">¿Ya tienes una cuenta? ¡Inicia
+            sesión!</ion-button>
+    </ion-toolbar>
+</ion-footer>
