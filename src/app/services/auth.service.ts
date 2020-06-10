@@ -3,7 +3,7 @@ import { switchMap } from 'rxjs/operators';
 import { UserService } from './user.service';
 import { Observable, of } from 'rxjs';
 import { AngularFireAuth } from '@angular/fire/auth';
-// import * as firebase from 'firebase';
+import * as firebase from 'firebase';
 
 
 @Injectable({
@@ -13,7 +13,7 @@ export class AuthService {
 
   user$: Observable<any>;
 
-  constructor(private afa:AngularFireAuth ,
+  constructor(private afa: AngularFireAuth,
     private userService: UserService) {
     this.user$ = this.afa.authState.pipe(
       switchMap(user => {
@@ -38,8 +38,48 @@ export class AuthService {
     return this.afa.auth.signOut();
   }
 
-  // deleteUser() {
-  //   const user = firebase.auth().currentUser;
-  //   user.delete();
-  // }
+  deleteUser(currentPassword) {
+    this.reauthenticate(currentPassword).then(() => {
+      const user = firebase.auth().currentUser;
+      user.delete();
+    }).catch((error) => {
+      console.log(error);
+    });
+  }
+
+  resetPassword(email: string) {
+    return this.afa.auth.sendPasswordResetEmail(email);
+  }
+
+  reauthenticate(currentPassword: string) {
+    var user = firebase.auth().currentUser;
+    var cred = firebase.auth.EmailAuthProvider.credential(
+      user.email, currentPassword);
+    return user.reauthenticateWithCredential(cred);
+  }
+
+  changePassword(currentPassword: string, newPassword: string) {
+    this.reauthenticate(currentPassword).then(() => {
+      var user = firebase.auth().currentUser;
+      user.updatePassword(newPassword).then(() => {
+        console.log('Password updated!');
+      }).catch((error) => {
+        console.log(error);
+      });
+    }).catch((error) => {
+      console.log(error);
+    });
+  }
+  changeEmail(currentPassword: string, newEmail: string) {
+    this.reauthenticate(currentPassword).then(() => {
+      var user = firebase.auth().currentUser;
+      user.updateEmail(newEmail).then(() => {
+        console.log('Email updated!');
+      }).catch((error) => {
+        console.log(error);
+      });
+    }).catch((error) => {
+      console.log(error);
+    });
+  }
 }

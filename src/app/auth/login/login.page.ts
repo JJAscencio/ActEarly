@@ -35,7 +35,7 @@ export class LoginPage implements OnInit {
           this.dismissLoading();
         }, 200);
         if (user) {
-          this.navCtrl.navigateRoot(['tabs/profile']);
+          this.navCtrl.navigateRoot(['tabs/followup']);
         }
       });
     }
@@ -59,7 +59,7 @@ export class LoginPage implements OnInit {
   
         this.authService.login(email, password).then(() => {
           this.dismissLoading();
-          this.navCtrl.navigateRoot(['tabs/kids']);
+          this.navCtrl.navigateRoot(['tabs/followup']);
         }).catch((error) => {
           this.dismissLoading();
           this.presentAlert('Algo malo ha pasado', error.message);
@@ -100,6 +100,10 @@ export class LoginPage implements OnInit {
 
     public onPasswordToggle(): void {
       this.showPassword = !this.showPassword;
+    }
+
+    public forgotPassword (){
+      this.navCtrl.navigateForward(['auth/forgot']);
     }
 
 }

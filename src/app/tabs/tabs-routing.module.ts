@@ -8,11 +8,11 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: 'kids',
+        path: 'create-child-profile',
         children: [
           {
             path: '',
-            loadChildren: () => import('./kids/kids.module').then(m => m.KidsPageModule)
+            loadChildren: () => import('./create-child-profile/create-child-profile.module').then( m => m.CreateChildProfilePageModule)
           }
         ]
       },
@@ -45,14 +45,14 @@ const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: '/tabs/kids',
+        redirectTo: '/tabs/followup',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/kids',
+    redirectTo: '/tabs/followup',
     pathMatch: 'full'
   },
 ];
