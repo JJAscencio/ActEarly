@@ -14,13 +14,14 @@ import { AuthService } from 'src/app/services/auth.service';
 export class SignupPage implements OnInit {
 
   signUpForm: FormGroup;
-  loadingIndicator;
+  loadingIndicator: any;
   loading = false;
 
   public showPassword: boolean = false;
   public showConfirmedPassword: boolean = false;
 
-  constructor(private userService: UserService,
+  constructor(
+    private userService: UserService,
     private navCtrl: NavController,
     private router: Router,
     private authService: AuthService,
@@ -28,13 +29,13 @@ export class SignupPage implements OnInit {
     private loadingCtrl: LoadingController) {
   }
 
-  async ngOnInit() {
+  ngOnInit() {
     this.initForm();
 
-
     const navigationId = this.router.getCurrentNavigation().id;
+
     if (navigationId === 1) {
-      await this.presentLoading('Cargando...');
+      this.presentLoading('Cargando...');
       this.authService.user$.pipe(take(1)).subscribe((user) => {
         setTimeout(() => {
           this.dismissLoading();
@@ -48,7 +49,7 @@ export class SignupPage implements OnInit {
 
   initForm() {
     this.signUpForm = new FormGroup({
-      fname: new FormControl(null, [Validators.required]),
+      name: new FormControl(null, [Validators.required]),
       lname: new FormControl(null, [Validators.required]),
       birthdate: new FormControl(null, [Validators.required]),
       phone: new FormControl(null, [Validators.required]),
@@ -63,11 +64,11 @@ export class SignupPage implements OnInit {
     await this.presentLoading('Creando tu cuenta...');
     if (this.signUpForm.valid) {
 
-      const fname = this.signUpForm.controls.fname.value;
+      const name = this.signUpForm.controls.name.value;
       const lname = this.signUpForm.controls.lname.value;
       const birthdate = this.signUpForm.controls.birthdate.value;
       const phone = this.signUpForm.controls.phone.value;
-      const username = this.signUpForm.controls.username.value;
+      const username = this.signUpForm.controls.username.value.toLowerCase();;
       const email = this.signUpForm.controls.email.value;
       const password = this.signUpForm.controls.password.value;
       const cpassword = this.signUpForm.controls.confirmPassword.value;
@@ -79,30 +80,31 @@ export class SignupPage implements OnInit {
 
           const user = {
             id: credentials.user.uid,
-            fname,
+            username,
+            email,
+            name,
             lname,
             birthdate,
-            email,
-            username,
-            phone
+            phone,
           };
 
           await this.userService.createUser(user);
+          await this.userService.createUsername(user);
           await this.authService.logout();
           this.dismissLoading();
           this.presentAlertConfirm('Bienvenido!', 'Tu cuenta ha sido creada exitosamente.');
         } catch (error) {
           this.dismissLoading();
-          this.presentAlert('Algo malo ha pasado', error.message);
+          this.presentAlert('El usuario ya existe!', 'Ingresa otro nombre de usuario');
         }
       } else {
         this.dismissLoading();
-        this.presentAlert('Algo malo ha pasado', 'El valor de Contraseña y Confirmar Contraseña no coinciden');
+        this.presentAlert('Las contraseñas no coinciden', 'El valor de Contraseña y Confirmar Contraseña no coinciden');
       }
 
     } else {
       this.dismissLoading();
-      this.presentAlert('Algo malo ha pasado', 'Por favor llena todos los campos correctamente.');
+      this.presentAlert('Información incompleta', 'Por favor llena todos los campos correctamente.');
     }
   }
 
@@ -153,7 +155,7 @@ export class SignupPage implements OnInit {
   public onPasswordToggle(): void {
     this.showPassword = !this.showPassword;
   }
-  public onConfirmPasswordToggle():void{
-    this.showConfirmedPassword =! this.showConfirmedPassword;
+  public onConfirmPasswordToggle(): void {
+    this.showConfirmedPassword = !this.showConfirmedPassword;
   }
 }

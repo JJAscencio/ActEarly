@@ -1,178 +1,93 @@
 <ion-header>
   <ion-toolbar>
-      <ion-title>Crear perfil de bebé</ion-title>
+    <ion-title>Crear perfil de bebé</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <div class="header-container">
-      <p>¡Ingresa los datos necesarios para comenzar con el seguimiento</p>
+    <p>¡Ingresa los datos necesarios para comenzar con el seguimiento</p>
   </div>
 
-  <form [formGroup]="createDogForm">
-      <ion-grid>
-          <ion-row>
-              <ion-col size="12">
-                  <ion-item>
-                      <ion-label position="floating">Nombre</ion-label>
-                      <ion-input formControlName="name" placeholder="Scooby"></ion-input>
-                  </ion-item>
-              </ion-col>
-          </ion-row>
+  <form [formGroup]="createBabyForm">
+    
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label position="floating">Nombre del bebé</ion-label>
+            <ion-input formControlName="name"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
 
-          <ion-row>
-              <ion-col size="12">
-                  <ion-item>
-                      <ion-label position="floating">Sexo</ion-label>
-                      <ion-select formControlName="sex" placeholder="Selecciona el sexo">
-                          <ion-select-option value="Macho">Macho</ion-select-option>
-                          <ion-select-option value="Hembra">Hembra</ion-select-option>
-                      </ion-select>
-                  </ion-item>
-              </ion-col>
-          </ion-row>
 
-          <ion-row>
-              <ion-col size="12">
-                  <ion-item>
-                      <ion-label position="floating">Tamaño</ion-label>
-                      <ion-select formControlName="size" placeholder="Selecciona el tamaño">
-                          <ion-select-option value="CH">Chico</ion-select-option>
-                          <ion-select-option value="MED">Mediano</ion-select-option>
-                          <ion-select-option value="G">Grande</ion-select-option>
-                          <ion-select-option value="XG">Extra Grande</ion-select-option>
-                      </ion-select>
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label position="floating">Apellidos</ion-label>
+            <ion-input formControlName="lname"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
 
-                  </ion-item>
-              </ion-col>
-          </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label position="floating">Sexo del bebé</ion-label>
+            <ion-select formControlName="sex" >
+              <ion-select-option value="Hombre">Hombre</ion-select-option>
+              <ion-select-option value="Mujer">Mujer</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
 
-          <ion-row>
-              <ion-col size="12">
-                  <ion-item>
-                      <ion-label position="floating">Raza</ion-label>
-                      <ion-select formControlName="breed" placeholder="Selecciona la raza">
-                          <ion-select-option value="Airedale Terrier">Airedale Terrier</ion-select-option>
-                          <ion-select-option value="Akita (estadounidense)">Akita (estadounidense)</ion-select-option>
-                          <ion-select-option value="Basset Hound">Basset Hound</ion-select-option>
-                          <ion-select-option value="Beagle">Beagle</ion-select-option>
-                          <ion-select-option value="Bichon Frise">Bichon Frise</ion-select-option>
-                          <ion-select-option value="Boston Terrier">Boston Terrier</ion-select-option>
-                          <ion-select-option value="Boxer">Boxer</ion-select-option>
-                          <ion-select-option value="Brittany Spaniel">Brittany Spaniel</ion-select-option>
-                          <ion-select-option value="Buldog">Buldog</ion-select-option>
-                          <ion-select-option value="Caniche">Caniche</ion-select-option>
-                          <ion-select-option value="Chesapeake Bay Retriever">Chesapeake Bay Retriever
-                          </ion-select-option>
-                          <ion-select-option value="Chihuahua">Chihuahua</ion-select-option>
-                          <ion-select-option value="Chow Chow">Chow Chow</ion-select-option>
-                          <ion-select-option value="Cocker Spaniel Americano">Cocker Spaniel Americano
-                          </ion-select-option>
-                          <ion-select-option value="Collie">Collie</ion-select-option>
-                          <ion-select-option value="Dálmata">Dálmata</ion-select-option>
-                          <ion-select-option value="Doberman Pinscher">Doberman Pinscher</ion-select-option>
-                          <ion-select-option value="Doguillo">Doguillo</ion-select-option>
-                          <ion-select-option value="Golden Retriever">Golden Retriever</ion-select-option>
-                          <ion-select-option value="Gran Danés">Gran Danés</ion-select-option>
-                          <ion-select-option value="Husky siberiano">Husky siberiano</ion-select-option>
-                          <ion-select-option value="Labrador retriever">Labrador retriever</ion-select-option>
-                          <ion-select-option value="Lhasa Apso">Lhasa Apso</ion-select-option>
-                          <ion-select-option value="Los grandes pirineos">Los grandes pirineos</ion-select-option>
-                          <ion-select-option value="Malamute de Alaska">Malamute de Alaska</ion-select-option>
-                          <ion-select-option value="Maltés">Maltés</ion-select-option>
-                          <ion-select-option value="Mastín">Mastín</ion-select-option>
-                          <ion-select-option value="Pastor australiano">Pastor australiano</ion-select-option>
-                          <ion-select-option value="Pekinés">Pekinés</ion-select-option>
-                          <ion-select-option value="Pembroke Welsh Corgi">Pembroke Welsh Corgi</ion-select-option>
-                          <ion-select-option value="Perro pastor alemán">Perro pastor alemán</ion-select-option>
-                          <ion-select-option value="Perro pastor de Shetland (Sheltie)">Perro pastor de Shetland (Sheltie)
-                          </ion-select-option>
-                          <ion-select-option value="Perro tejonero">Perro tejonero</ion-select-option>
-                          <ion-select-option value="Pinscher miniatura">Pinscher miniatura</ion-select-option>
-                          <ion-select-option value="Pitbull">Pitbull</ion-select-option>
-                          <ion-select-option value="Pomeranio">Pomeranio</ion-select-option>
-                          <ion-select-option value="Puntero de pelo corto alemán">Puntero de pelo corto alemán
-                          </ion-select-option>
-                          <ion-select-option value="Rottweiler">Rottweiler</ion-select-option>
-                          <ion-select-option value="Samoyedo">Samoyedo</ion-select-option>
-                          <ion-select-option value="San Bernardo">San Bernardo</ion-select-option>
-                          <ion-select-option value="Schipperke">Schipperke</ion-select-option>
-                          <ion-select-option value="Schnauzer miniatura">Schnauzer miniatura</ion-select-option>
-                          <ion-select-option value="Scottish Terrier (escocés)">Scottish Terrier (escocés)
-                          </ion-select-option>
-                          <ion-select-option value="Shar-Pei chino">Shar-Pei chino</ion-select-option>
-                          <ion-select-option value="Shih-Tzu">Shih-Tzu</ion-select-option>
-                          <ion-select-option value="Springer Spaniel Inglés">Springer Spaniel Inglés
-                          </ion-select-option>
-                          <ion-select-option value="Terranova">Terranova</ion-select-option>
-                          <ion-select-option value="Terrier de mojón">Terrier de mojón</ion-select-option>
-                          <ion-select-option value="Weimaraner">Weimaraner</ion-select-option>
-                          <ion-select-option value="West Highland White Terrier">West Highland White Terrier
-                          </ion-select-option>
-                          <ion-select-option value="Yorkshire Terrier">Yorkshire Terrier</ion-select-option>
-                          <ion-select-option value="Otra">Otra</ion-select-option>
-                      </ion-select>
-                  </ion-item>
-              </ion-col>
-          </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label>Fecha de nacimiento</ion-label>
+            <ion-datetime formControlName="dateofbirth" value=""></ion-datetime>
+          </ion-item>
+        </ion-col>
+      </ion-row>
 
-          <ion-row>
-              <ion-col size="12">
-                  <ion-item>
-                      <ion-label position="floating">Edad (aprox.)</ion-label>
-                      <ion-select formControlName="age" placeholder="Selecciona la edad">
-                          <ion-select-option value="1 mes - 2 meses">1 - 2 (meses)</ion-select-option>
-                          <ion-select-option value="2 meses - 6 meses">2 - 6 (meses)</ion-select-option>
-                          <ion-select-option value="6 meses - 1 año">5 - 12 (meses)</ion-select-option>
-                          <ion-select-option value="1 año - 2 años">1 - 2 (años)</ion-select-option>
-                          <ion-select-option value="2 años - 5 años">2 -5 (años)</ion-select-option>
-                          <ion-select-option value="Senior">Senior (5+ años)</ion-select-option>
-                      </ion-select>
-                  </ion-item>
-              </ion-col>
-          </ion-row>
+      <!-- <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label position="floating">Nombre de Padre / Madre</ion-label>
+            <ion-input formControlName="parentsname"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row> -->
 
-          <ion-row>
-              <ion-col size="12">
-                  <ion-item>
-                      <ion-label position="floating">Fecha en que se encontro (aprox.)</ion-label>
-                      <ion-datetime formControlName="fplace" displayFormat="DD MM YYYY" placeholder="16/05/2020">
-                      </ion-datetime>
-                  </ion-item>
-              </ion-col>
-          </ion-row>
+      <!-- <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label position="floating">Correo electronico de Padre / Madre</ion-label>
+            <ion-input formControlName="parentsemail"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row> -->
 
-          <ion-row>
-              <ion-col size="12">
-                  <ion-item>
-                      <ion-label position="floating">Lugar en que se encontro</ion-label>
-                      <ion-input formControlName="found" placeholder="Calle Fantasma 123, Crystal Cove"></ion-input>
-                  </ion-item>
-              </ion-col>
-          </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label position="floating">Nombre de Doctor</ion-label>
+            <ion-input formControlName="doctorsname"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
 
-          <ion-row>
-              <ion-col size="12">
-                  <ion-item>
-                      <ion-label position="floating">Descripción</ion-label>
-                      <ion-textarea formControlName="description" placeholder="Escribe una breve descripcion (ie. presenta maltrato, alguna seña en particular)">
-                      </ion-textarea>
-                  </ion-item>
-              </ion-col>
-          </ion-row>
-
-          <b></b>
-
-          <ion-row>
-              <ion-col size="12">
-                  <ion-item>
-                      <ion-label position="floating">Collar</ion-label>
-                      <ion-textarea formControlName="collar" placeholder="Informacion en collar (telefono, nombre de dueño , dirreccion, etc.">
-                      </ion-textarea>
-                  </ion-item>
-              </ion-col>
-          </ion-row>
-
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label position="floating">Correo electrónico de Doctor </ion-label>
+            <ion-input formControlName="doctorsemail"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <!-- 
           <ion-row>
               <ion-col size="12">
                   <ion-item>
@@ -195,15 +110,15 @@
                  
                   </ion-item>
               </ion-col>
-          </ion-row>
+          </ion-row> -->
 
-          <ion-row>
-              <ion-col size="12">
-                  <ion-button color="primary" expand="block" fill="solid" (click)="onSubmit()">Crear perfil
-                  </ion-button>
-              </ion-col>
-          </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <ion-button color="primary" expand="block" fill="solid" (click)="onSubmit()">Crear perfil de bebé
+          </ion-button>
+        </ion-col>
+      </ion-row>
 
-      </ion-grid>
+    </ion-grid>
   </form>
 </ion-content>

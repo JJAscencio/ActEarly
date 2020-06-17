@@ -9,14 +9,21 @@ export class UserService {
 
   constructor(private afs: AngularFirestore) { }
 
-  getUser(uId: string){
-    return this.afs.collection('users', ref => ref
-    .where('id', '==', uId))
-    .valueChanges();
+  getUser(uid: string) {
+    return this.afs.doc(`users/${uid}`).valueChanges();
   }
 
   createUser(user: any) {
-    return this.afs.doc(`users/${user.username}`).set(user);
+    return this.afs.doc(`users/${user.id}`).set(user);
+  }
+
+  createUsername(user: any) {
+    const doc = {
+      username: user.username,
+      uid: user.id
+    };
+
+    return this.afs.doc(`usernames/${user.username}`).set(doc);
   }
 
   searchUsers(username: string) {
@@ -44,11 +51,11 @@ export class UserService {
     })
   }
 
-  deleteUser(userId: string) {
-    return this.afs.doc(`users/${userId}`).delete();
+  deleteUser(id: string) {
+    return this.afs.doc(`users/${id}`).delete();
   }
 
-  updateUser(userId: string, updatedUser: any) {
-    return this.afs.doc(`user/${userId}`).update(updatedUser);
+  updateUser(id: string, updatedUser: any) {
+    return this.afs.doc(`user/${id}`).update(updatedUser);
   }
 }
