@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-back-button text="" icon="chevron-back-outline"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>{{baby?.name}}</ion-title>
+    <ion-buttons slot="end" (click)="openModalEdit()">
+      <ion-icon slot="icon-only" ios="ellipsis-horizontal" md="ellipsis-vertical"></ion-icon>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-segment (ionChange)="segmentChanged($event)" value="Hitos Criticos">
+    <ion-segment-button value="Hitos Criticos">
+      <ion-label>Hitos criticos</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="Notas">
+      <ion-label>Notas</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="Resultados Seguimiento">
+      <ion-label>Resultados de <br> Seguimiento</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+</ion-content>

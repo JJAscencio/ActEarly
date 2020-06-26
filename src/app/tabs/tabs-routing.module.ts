@@ -8,11 +8,11 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: 'create-child-profile',
+        path: 'create-baby-profile',
         children: [
           {
             path: '',
-            loadChildren: () => import('./create-child-profile/create-child-profile.module').then( m => m.CreateChildProfilePageModule)
+            loadChildren: () => import('./create-baby-profile/create-baby-profile.module').then( m => m.CreateBabyProfilePageModule)
           }
         ]
       },
@@ -22,6 +22,10 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: () => import('./followup/followup.module').then(m => m.FollowupPageModule)
+          },
+          {
+            path: 'baby/:babyId',
+            loadChildren: () => import('./baby-detail/baby-detail.module').then(m => m.BabyDetailPageModule)
           }
         ]
       },
@@ -55,6 +59,11 @@ const routes: Routes = [
     redirectTo: '/tabs/followup',
     pathMatch: 'full'
   },
+  {
+    path: 'edit-baby',
+    loadChildren: () => import('./modals/edit-baby/edit-baby.module').then( m => m.EditBabyPageModule)
+  },
+
 ];
 
 @NgModule({

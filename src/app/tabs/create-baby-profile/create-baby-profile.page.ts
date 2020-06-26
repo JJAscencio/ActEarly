@@ -1,15 +1,15 @@
-import { AuthService } from 'src/app/services/auth.service';
-import { NavController, AlertController, LoadingController } from '@ionic/angular';
-import { BabyService } from './../../services/baby.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { NavController, AlertController, LoadingController } from '@ionic/angular';
+import { AuthService } from 'src/app/services/auth.service';
+import { BabyService } from './../../services/baby.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-create-child-profile',
-  templateUrl: './create-child-profile.page.html',
-  styleUrls: ['./create-child-profile.page.scss'],
+  selector: 'app-create-baby-profile',
+  templateUrl: './create-baby-profile.page.html',
+  styleUrls: ['./create-baby-profile.page.scss'],
 })
-export class CreateChildProfilePage implements OnInit {
+export class CreateBabyProfilePage implements OnInit {
 
   user: any;
   baby: any;
@@ -124,41 +124,4 @@ export class CreateChildProfilePage implements OnInit {
 
     await alert.present();
   }
-
-  // async takePicture() {
-  //   const image = await Plugins.Camera.getPhoto({
-  //     quality: 100,
-  //     allowEditing: false,
-  //     resultType: CameraResultType.Base64,
-  //     source: CameraSource.Prompt
-  //   });
-
-  //   const base64 = `data:image/${image.format};base64, ${image.base64String}`;
-  //   this.displayPhoto = this.sanitizer.bypassSecurityTrustResourceUrl(base64);
-
-  //   const imageBlob = this.base64toBlob(image.base64String);
-  //   this.file = new File([imageBlob], 'test.jpeg', { type: 'image/jpeg' });
-  //   this.createBabyForm.get("profilepic").setValue("Foto tomada!");
-  //   this.createBabyForm.get("profilepic").updateValueAndValidity();
-  // }
-
-  // base64toBlob(dataURI: string) {
-  //   const byteString = window.atob(dataURI);
-  //   const arrayBuffer = new ArrayBuffer(byteString.length);
-  //   const int8Array = new Uint8Array(arrayBuffer);
-  //   for (let i = 0; i < byteString.length; i++) {
-  //     int8Array[i] = byteString.charCodeAt(i);
-  //   }
-  //   const blob = new Blob([int8Array], { type: 'image/jpeg' });
-
-  //   return blob;
-  // }
-
-  // resetView(): void {
-  //   this.file = undefined;
-  //   this.displayPhoto = undefined;
-  // }
-
-
-
 }

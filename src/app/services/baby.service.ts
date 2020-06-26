@@ -1,7 +1,8 @@
+import { Baby } from 'src/models/baby.model';
 import { map, take } from 'rxjs/operators';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Injectable } from '@angular/core';
-import { firestore } from 'firebase';
+import { firestore } from 'firebase/app';
 
 @Injectable({
   providedIn: 'root'
@@ -64,7 +65,6 @@ export class BabyService {
         .limit(pageSize))
         .snapshotChanges()
         .pipe(
-          take(1),
           map(docs => docs.map(doc => doc.payload.doc.data()))
         );
     } else {
@@ -73,7 +73,6 @@ export class BabyService {
         .limit(pageSize))
         .snapshotChanges()
         .pipe(
-          take(1),
           map(docs => docs.map(doc => doc.payload.doc.data()))
         );
     }

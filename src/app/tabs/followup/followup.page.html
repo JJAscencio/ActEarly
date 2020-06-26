@@ -1,40 +1,46 @@
 <ion-header>
     <ion-toolbar>
+
+        <ion-buttons slot="primary">
+            <ion-button (click)="goToCreateBaby()">
+                <ion-icon slot="icon-only" class="add-icon" name="add-circle-outline"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+
         <ion-title>Seguimiento</ion-title>
+
     </ion-toolbar>
+
 </ion-header>
+
 
 <ion-content>
 
-    <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
-        <ion-refresher-content pullingIcon="chevron-down-outline" pullingText="Pull to refresh"
-            refreshingSpinner="lines">
-        </ion-refresher-content>
-    </ion-refresher>
-
     <ion-list>
+
         <div *ngFor="let baby of babys">
             <ion-item>
                 <slot name="start">
                     <ion-thumbnail>
-                        <img
-                            src='https://p7.hiclipart.com/preview/179/946/402/infant-child-photography-clip-art-cute-baby-thumbnail.jpg'>
+                        <img src='https://cdn4.iconfinder.com/data/icons/baby-65/512/baby20-512.png'
+                            (click)="goToBabyProfile(baby?.id)">
                     </ion-thumbnail>
                 </slot>
                 <ion-label class="babysep">
-                    <h3>{{ baby.name }}</h3>
-                    <ion-label>{{ baby.lname }}</ion-label>
-                    <ion-note>{{baby.sex}} &middot; {{ baby.dateofbirth }}</ion-note>
+                    <h2>{{ baby?.name }}</h2>
+                    <h3>{{ baby?.lname }}</h3>
+                    <ion-note>{{baby?.sex}} &middot; {{ baby?.dateofbirth }}</ion-note>
                 </ion-label>
                 <ion-note slot="end" class="arrow-icon">
-                    <ion-icon name="chevron-forward-outline"></ion-icon>
+                    <ion-icon name="chevron-forward-outline" (click)="goToBabyProfile(baby?.id)"></ion-icon>
                 </ion-note>
             </ion-item>
         </div>
+
     </ion-list>
 
 
-    <ion-infinite-scroll (ionInfinite)="loadMoreBabys($event)">
+    <ion-infinite-scroll (ionInfinite)=" loadMoreBabys($event)">
         <ion-infinite-scroll-content loadingSpinner="lines-small">
 
         </ion-infinite-scroll-content>

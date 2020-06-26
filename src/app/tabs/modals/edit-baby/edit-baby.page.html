@@ -1,0 +1,86 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Editar perfil de {{baby.name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="editBabyForm">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label position="stacked">Nombre del bebé</ion-label>
+            <ion-input formControlName="name"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label position="stacked">Apellidos</ion-label>
+            <ion-input formControlName="lname"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label position="stacked">Sexo del bebé</ion-label>
+            <ion-select formControlName="sex">
+              <ion-select-option value="Hombre">Hombre</ion-select-option>
+              <ion-select-option value="Mujer">Mujer</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label positio="stacked">Fecha de nacimiento</ion-label>
+            <ion-datetime formControlName="dateofbirth" value=""></ion-datetime>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label position="stacked">Nombre de Doctor</ion-label>
+            <ion-input formControlName="doctorsname"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label position="stacked">Correo electrónico de Doctor </ion-label>
+            <ion-input formControlName="doctorsemail"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="12">
+          <ion-button color="primary" expand="full" fill="solid" (click)="updateBaby()">Guardar Cambios</ion-button>
+        </ion-col>
+
+      </ion-row>
+
+    </ion-grid>
+
+
+  </form>
+</ion-content>
+
+<ion-footer>
+  <ion-col size="12">
+    <ion-button expand="full" color="danger" (click)="closeModal()" fill="solid">Cancelar
+    </ion-button>
+  </ion-col>
+</ion-footer>

@@ -1,0 +1,94 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Crear perfil de bebé</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="header-container">
+    <p>¡Ingresa los datos necesarios para comenzar con el seguimiento</p>
+  </div>
+
+  <form [formGroup]="createBabyForm">
+
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label position="stacked">Nombre del bebé</ion-label>
+            <ion-input formControlName="name" placeholder="Ingrese Nombre"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label position="stacked">Apellidos del bebe</ion-label>
+            <ion-input formControlName="lname" placeholder="Ingrese Apellidos"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label position="stacked">Sexo del bebé</ion-label>
+            <ion-select formControlName="sex" placeholder="Seleccione el sexo">
+              <ion-select-option value="Hombre">Hombre</ion-select-option>
+              <ion-select-option value="Mujer">Mujer</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label position="stacked">Fecha de nacimiento</ion-label>
+            <ion-datetime formControlName="dateofbirth" placeholder="Seleccione la fecha de nacimiento"></ion-datetime>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label position="stacked">Nombre de Doctor</ion-label>
+            <ion-input formControlName="doctorsname" placeholder="Ingrese el nombre del Doctor"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label position="stacked">Correo electrónico de Doctor </ion-label>
+            <ion-input formControlName="doctorsemail" placeholder="Ingrese el correo del Doctor"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <!-- 
+
+          <ion-row>
+              <ion-col size="12">
+                  <ion-item>
+                      <ion-label position="floating">Foto de perfil</ion-label>
+                      <img [src]="displayPhoto || 'https://support.apple.com/library/content/dam/edam/applecare/images/en_US/macos/photo-3nav-button-icon.png' " (click)="takePicture()" >
+                      <ion-input readonly formControlName="profilepic"></ion-input>
+                 
+                  </ion-item>
+              </ion-col>
+          </ion-row> -->
+
+      <ion-row>
+        <ion-col size="12">
+          <ion-button color="primary" expand="block" fill="solid" (click)="onSubmit()">Crear perfil de bebé
+          </ion-button>
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+  </form>
+</ion-content>

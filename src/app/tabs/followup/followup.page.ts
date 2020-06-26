@@ -1,8 +1,8 @@
+import { NavController, AlertController } from '@ionic/angular';
 import { Baby } from 'src/models/baby.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { BabyService } from './../../services/baby.service';
 import { Component, OnInit } from '@angular/core';
-import { timeStamp } from 'console';
 
 @Component({
   selector: 'app-followup',
@@ -12,7 +12,7 @@ import { timeStamp } from 'console';
 export class FollowupPage implements OnInit {
 
   user: any;
-  babys: Baby[]=[];
+  babys: Baby[] = [];
   pageSize = 9;
   upToDate = false;
   loadingIndicator: any;
@@ -21,6 +21,8 @@ export class FollowupPage implements OnInit {
   constructor(
     private authService: AuthService,
     private babyService: BabyService,
+    private navCtrl: NavController,
+    private alertCtrl: AlertController
   ) { }
 
   ngOnInit() {
@@ -33,8 +35,6 @@ export class FollowupPage implements OnInit {
   getBabys() {
     this.babyService.getBabysByUserAndPage(this.user.id, null, this.pageSize).subscribe((babys: any[]) => {
       this.babys = babys;
-      console.log(this.user.id);
-      console.log(this.babys);
       this.upToDate = babys.length < this.pageSize;
     });
   }
@@ -62,5 +62,25 @@ export class FollowupPage implements OnInit {
       event.target.complete();
     }, 1000);
   }
+
+  goToBabyProfile(babyId: string) {
+    this.navCtrl.navigateForward(['tabs', 'followup', 'baby', babyId]);
+    this.presentAlert('Atención!', 'Conteste las siguientes preguntas acerca de los hitos de su bebé. Hable con el Dr. en cada visita acerca de los hitos críticos que su bebé ha alcanzado y de los que espera después.')
+  }
+
+  async presentAlert(title: string, body: string) {
+    const alert = await this.alertCtrl.create({
+      header: title,
+      message: body,
+      buttons: ['Continuar']
+    });
+
+    await alert.present();
+  }
+
+  goToCreateBaby() {
+    this.navCtrl.navigateForward(['tabs', 'create-baby-profile']);
+  }
+
 
 }
