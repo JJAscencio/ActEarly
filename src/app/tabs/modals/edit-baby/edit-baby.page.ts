@@ -111,6 +111,7 @@ export class EditBabyPage implements OnInit {
           text: 'Listo',
           handler: () => {
             this.closeModal();
+            this.navCtrl.navigateRoot(['tabs','followup']);
           }
         }
       ]
@@ -121,7 +122,6 @@ export class EditBabyPage implements OnInit {
 
   async closeModal() {
     await this.modalCtrl.dismiss();
-    this.navCtrl.navigateForward(['tabs', 'followup']);
   }
 
   async presentAlert(title: string, body: string) {
