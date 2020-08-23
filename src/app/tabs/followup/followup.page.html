@@ -1,11 +1,11 @@
 <ion-header>
     <ion-toolbar>
 
-        <ion-buttons slot="primary">
+        <!-- <ion-buttons slot="primary">
             <ion-button (click)="goToCreateBaby()">
                <ion-icon slot="icon-only" class="add-icon" name="add-outline"></ion-icon>
             </ion-button>
-        </ion-buttons>
+        </ion-buttons> -->
 
         <ion-title>Seguimiento</ion-title>
 
@@ -28,7 +28,7 @@
                 </slot>
                 <ion-label class="babysep">
                     <h2>{{ baby?.name }}</h2>
-                    <h3>{{ baby?.lname }}</h3>
+                    <h2>{{ baby?.lname }}</h2>
                     <ion-note>{{baby?.sex}} &middot; {{ baby?.dateofbirth }}</ion-note>
                 </ion-label>
                 <ion-note slot="end" class="arrow-icon">
@@ -45,4 +45,12 @@
 
         </ion-infinite-scroll-content>
     </ion-infinite-scroll>
+
+
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button (click)="goToCreateBaby()">
+          <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
+
 </ion-content>

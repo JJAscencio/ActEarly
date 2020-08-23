@@ -134,4 +134,16 @@ export class EditBabyPage implements OnInit {
     await alert.present();
   }
 
+  deleteBaby(babyId: string) {
+    this.babyService
+      .deleteBaby(babyId)
+      .then(() => {
+        console.log(babyId);
+        this.presentAlertConfirm('¡Exito!', 'El perfil del bebé ha sido eliminado');
+      })
+      .catch((error) => {
+        this.presentAlert('Algo malo ha pasado', error.message);
+      });
+  }
+
 }

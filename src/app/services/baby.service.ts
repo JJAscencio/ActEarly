@@ -45,6 +45,10 @@ export class BabyService {
     );
   }
 
+  getBabysDOB(babyId: string) {
+    return this.afs.collection('babys')
+  }
+
   getBabysByUser(id: string) {
     return this.afs.collection('babys', ref => ref
       .where('uid', '==', id))

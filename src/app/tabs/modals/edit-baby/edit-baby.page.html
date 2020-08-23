@@ -41,7 +41,7 @@
       <ion-row>
         <ion-col size="12">
           <ion-item>
-            <ion-label positio="stacked">Fecha de nacimiento</ion-label>
+            <ion-label position="stacked">Fecha de nacimiento</ion-label>
             <ion-datetime formControlName="dateofbirth" value=""></ion-datetime>
           </ion-item>
         </ion-col>
@@ -67,7 +67,14 @@
 
       <ion-row>
         <ion-col size="12">
-          <ion-button color="primary" expand="full" fill="solid" (click)="updateBaby()">Guardar Cambios</ion-button>
+          <ion-button color="primary" expand="block" fill="solid" (click)="updateBaby()">Guardar Cambios</ion-button>
+        </ion-col>
+
+        <br>
+
+        <ion-col size="12">
+          <ion-button expand="block" (click)="closeModal()" fill="solid">Cancelar
+          </ion-button>
         </ion-col>
 
       </ion-row>
@@ -80,7 +87,7 @@
 
 <ion-footer>
   <ion-col size="12">
-    <ion-button expand="full" color="danger" (click)="closeModal()" fill="solid">Cancelar
+    <ion-button expand="block" color="danger" (click)="deleteBaby(baby?.id)" fill="solid">Eliminar perfil
     </ion-button>
   </ion-col>
 </ion-footer>

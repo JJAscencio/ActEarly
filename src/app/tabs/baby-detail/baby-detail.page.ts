@@ -1,5 +1,5 @@
 import { EditBabyPage } from 'src/app/tabs/modals/edit-baby/edit-baby.page';
-import { NavController, ActionSheetController, ModalController, PopoverController } from '@ionic/angular';
+import { NavController, ActionSheetController, ModalController, PopoverController, NavParams } from '@ionic/angular';
 import { BabyService } from 'src/app/services/baby.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { Component, OnInit, Input } from '@angular/core';
@@ -28,13 +28,13 @@ export class BabyDetailPage implements OnInit {
     private actionSheetCtrl: ActionSheetController,
     private modalCtrl: ModalController,
     private popoverCtrl: PopoverController,
+
   ) { }
 
   ngOnInit() {
 
     this.babyId = this.activatedRoute.snapshot.paramMap.get('babyId');
     this.getBaby(this.babyId);
-    console.log(this.babyId);
     this.authService.user$.subscribe((user: any) => {
       this.user = user;
     });
@@ -43,7 +43,7 @@ export class BabyDetailPage implements OnInit {
   getBaby(babyId: string) {
     this.babyService.getBaby(babyId).subscribe((baby: any) => {
       if (!baby) {
-        this.navCtrl.navigateRoot(['tabs','followup']);
+        this.navCtrl.navigateRoot(['tabs', 'followup']);
       }
       this.baby = baby;
     });
@@ -137,5 +137,10 @@ export class BabyDetailPage implements OnInit {
   segmentChanged(event: any): void {
     this.segment = event.detail.value;
   }
+
+  calculateAge() {
+  }
+
+
 
 }

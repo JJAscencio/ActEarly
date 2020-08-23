@@ -5,6 +5,11 @@ ion-header {
 }
 
 ion-content {
+
+    ion-label {
+        font-size: 11px;
+    }
+
     ion-grid {
         ion-row.baby-header {
             height: 60px;

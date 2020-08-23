@@ -4,6 +4,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { BabyService } from './../../services/baby.service';
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-followup',
   templateUrl: './followup.page.html',
@@ -38,7 +39,6 @@ export class FollowupPage implements OnInit {
       this.upToDate = babys.length < this.pageSize;
     });
   }
-
 
   loadMoreBabys(event: any) {
     if (!this.upToDate) {
@@ -82,5 +82,16 @@ export class FollowupPage implements OnInit {
     this.navCtrl.navigateForward(['tabs', 'create-baby-profile']);
   }
 
+  ageFromDateOfBirthday(dateOfBirth: any): number {
+    const today = new Date();
+    const birthDate = new Date(dateOfBirth);
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const m = today.getMonth() - birthDate.getMonth();
 
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
+
+    return age;
+  }
 }

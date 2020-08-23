@@ -47,7 +47,8 @@
         <ion-col size="12">
           <ion-item>
             <ion-label position="stacked">Fecha de nacimiento</ion-label>
-            <ion-datetime formControlName="dateofbirth" placeholder="Seleccione la fecha de nacimiento"></ion-datetime>
+            <ion-datetime formControlName="dateofbirth" placeholder="Seleccione la fecha de nacimiento"  displayFormat="MMM DD, YYYY" 
+            ></ion-datetime>
           </ion-item>
         </ion-col>
       </ion-row>
@@ -92,3 +93,6 @@
     </ion-grid>
   </form>
 </ion-content>
+
+<!-- (ngModelChange)="date_of_birth=format($event)" 
+            [ngModel]="date_of_birth | date" -->

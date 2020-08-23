@@ -3,6 +3,7 @@ import { NavController, AlertController, LoadingController } from '@ionic/angula
 import { AuthService } from 'src/app/services/auth.service';
 import { BabyService } from './../../services/baby.service';
 import { Component, OnInit } from '@angular/core';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-create-baby-profile',
@@ -31,7 +32,7 @@ export class CreateBabyProfilePage implements OnInit {
     this.authService.user$.subscribe((user) => {
       this.user = user;
       console.log(this.user),
-      console.log(this.user.name)
+        console.log(this.user.name)
     });
   }
 
@@ -53,7 +54,7 @@ export class CreateBabyProfilePage implements OnInit {
       const name = this.createBabyForm.controls.name.value;
       const lname = this.createBabyForm.controls.lname.value;
       const sex = this.createBabyForm.controls.sex.value;
-      const dateofbirth = this.createBabyForm.controls.dateofbirth.value;
+      const dateofbirth = Date.parse(this.createBabyForm.controls.dateofbirth.value);
       const doctorsname = this.createBabyForm.controls.doctorsname.value;
       const doctorsemail = this.createBabyForm.controls.doctorsemail.value;
 
@@ -124,4 +125,16 @@ export class CreateBabyProfilePage implements OnInit {
 
     await alert.present();
   }
+
+  async create() {
+    const id = this.baby ? this.baby.id : '';
+    const data = {
+    createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+    ...this.baby,
+    ...this.createBabyForm.value,
+    date: new Date(this.createBabyForm.value.date)
+    };
+  
+    }
+
 }
