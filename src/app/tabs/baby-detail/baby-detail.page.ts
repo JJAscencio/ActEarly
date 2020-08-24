@@ -17,7 +17,7 @@ export class BabyDetailPage implements OnInit {
   user: any;
   baby: any;
   babyId: string;
-  segment = 'hitoscriticos';
+  segment = 'criticos';
   currentPopover = null;
 
   constructor(
@@ -138,7 +138,11 @@ export class BabyDetailPage implements OnInit {
     this.segment = event.detail.value;
   }
 
-  calculateAge() {
+  ageFromDateOfBirthday(dateOfBirth: any): any {
+    const today = Date.now();
+    const alive = today - dateOfBirth;
+    const month = Math.floor(alive / 2629743000);
+    return month;
   }
 
 

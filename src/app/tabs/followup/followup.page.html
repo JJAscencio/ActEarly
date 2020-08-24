@@ -29,7 +29,7 @@
                 <ion-label class="babysep">
                     <h2>{{ baby?.name }}</h2>
                     <h2>{{ baby?.lname }}</h2>
-                    <ion-note>{{baby?.sex}} &middot; {{ baby?.dateofbirth }}</ion-note>
+                    <ion-note>{{baby?.sex}} &middot; {{ageFromDateOfBirthday(baby?.dateofbirth)}} {{ ageFromDateOfBirthday(baby?.dateofbirth) === 1 ? 'mes' : 'meses' }} </ion-note>
                 </ion-label>
                 <ion-note slot="end" class="arrow-icon">
                     <ion-icon name="chevron-forward-outline" (click)="goToBabyProfile(baby?.id)"></ion-icon>
@@ -49,8 +49,8 @@
 
     <ion-fab vertical="bottom" horizontal="end" slot="fixed">
         <ion-fab-button (click)="goToCreateBaby()">
-          <ion-icon name="add"></ion-icon>
+            <ion-icon name="add"></ion-icon>
         </ion-fab-button>
-      </ion-fab>
+    </ion-fab>
 
 </ion-content>

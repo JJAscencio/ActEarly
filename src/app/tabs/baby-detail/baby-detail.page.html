@@ -14,18 +14,64 @@
 </ion-header>
 
 <ion-content>
-
-  <ion-segment (ionChange)="segmentChanged($event)" value="Hitos Criticos">
-    <ion-segment-button value="Hitos Criticos">
-      <ion-label>Hitos criticos</ion-label>
-    </ion-segment-button>
-    <ion-segment-button value="Notas">
-      <ion-label>Notas</ion-label>
-    </ion-segment-button>
-    <ion-segment-button value="Resultados Seguimiento">
-      <ion-label>Resultados de <br> Seguimiento</ion-label>
-    </ion-segment-button>
-  </ion-segment>
+  <ion-toolbar>
+    <ion-segment (ionChange)="segmentChanged($event)" value="criticos">
+      <ion-segment-button value="criticos">
+        <ion-label>Hitos criticos</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="notas">
+        <ion-label>Notas</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="resultados">
+        <ion-label>Resultados de <br> Seguimiento</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+    
   <br>
-  <ion-progress-bar></ion-progress-bar>
+
+  <ng-container *ngIf="segment === 'criticos' then criticos"></ng-container>
+  <ng-container *ngIf="segment === 'notas' then notas"></ng-container>
+  <ng-container *ngIf="segment === 'resultados' then resultados"></ng-container>
+
+  <ng-template #criticos>
+    <ion-progress-bar></ion-progress-bar>
+    <h1 style="text-align: center;">{{ageFromDateOfBirthday(baby?.dateofbirth)}}
+      {{ ageFromDateOfBirthday(baby?.dateofbirth) === 1 ? 'mes' : 'meses' }}</h1>
+  </ng-template>
+
+  <ng-template #notas>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <h2 style="text-align: center;">{{ageFromDateOfBirthday(baby?.dateofbirth)}}
+            {{ ageFromDateOfBirthday(baby?.dateofbirth) === 1 ? 'mes' : 'meses' }}</h2>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <p style="padding-left: 20px; padding-right: 20px;">Registra una nota acerca de los hitos de
+            {{ageFromDateOfBirthday(baby?.dateofbirth)}}
+            {{ ageFromDateOfBirthday(baby?.dateofbirth) === 1 ? 'mes' : 'meses' }} de {{baby?.name}} que quisieras
+            platicar
+            con el doctor:</p>
+        </ion-col>
+      </ion-row>
+      <ion-item>
+        <ion-input placeholder="Ingrese sus notas aqui"></ion-input>
+      </ion-item>
+    </ion-grid>
+  </ng-template>
+
+  <ng-template #resultados>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <h2>Resultados</h2>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ng-template>
+
+
 </ion-content>

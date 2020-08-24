@@ -82,16 +82,10 @@ export class FollowupPage implements OnInit {
     this.navCtrl.navigateForward(['tabs', 'create-baby-profile']);
   }
 
-  ageFromDateOfBirthday(dateOfBirth: any): number {
-    const today = new Date();
-    const birthDate = new Date(dateOfBirth);
-    let age = today.getFullYear() - birthDate.getFullYear();
-    const m = today.getMonth() - birthDate.getMonth();
-
-    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-      age--;
-    }
-
-    return age;
+  ageFromDateOfBirthday(dateOfBirth: any): any {
+    const today = Date.now();
+    const alive = today - dateOfBirth;
+    const month = Math.floor(alive / 2629743000);
+    return month;
   }
 }

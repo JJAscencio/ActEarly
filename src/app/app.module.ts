@@ -17,6 +17,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { environment } from 'src/environments/environment';
 import { PopoverComponent } from './popover/popover.component';
 
+
 @NgModule({
   declarations: [AppComponent,PopoverComponent],
   entryComponents: [PopoverComponent],
