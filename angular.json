@@ -23,7 +23,10 @@
               {
                 "glob": "**/*",
                 "input": "src/assets",
-                "output": "assets"
+                "output": "assets",
+                "input": "src/data",
+                "output": "data"
+                
               },
               {
                 "glob": "**/*.svg",
@@ -37,6 +40,9 @@
               },
               {
                 "input": "src/global.scss"
+              },
+              {
+                "input": "node_modules/bootstrap/dist/css/bootstrap.min.css"
               }
             ],
             "scripts": []

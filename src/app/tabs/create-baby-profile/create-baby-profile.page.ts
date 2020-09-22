@@ -129,12 +129,12 @@ export class CreateBabyProfilePage implements OnInit {
   async create() {
     const id = this.baby ? this.baby.id : '';
     const data = {
-    createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-    ...this.baby,
-    ...this.createBabyForm.value,
-    date: new Date(this.createBabyForm.value.date)
+      createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+      ...this.baby,
+      ...this.createBabyForm.value,
+      date: new Date(this.createBabyForm.value.date)
     };
-  
-    }
+
+  }
 
 }

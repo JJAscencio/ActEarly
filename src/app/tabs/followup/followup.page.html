@@ -17,10 +17,12 @@
 <ion-content>
 
     <ion-list>
-
         <div *ngFor="let baby of babys">
             <ion-item>
                 <slot name="start">
+                    <ion-item-options side="start">
+                        <ion-item-option (click)="presentEditModal(baby?.id)" color="primary">Edit</ion-item-option>
+                    </ion-item-options>
                     <ion-thumbnail>
                         <img src='https://cdn4.iconfinder.com/data/icons/baby-65/512/baby20-512.png'
                             (click)="goToBabyProfile(baby?.id)">
@@ -29,16 +31,18 @@
                 <ion-label class="babysep">
                     <h2>{{ baby?.name }}</h2>
                     <h2>{{ baby?.lname }}</h2>
-                    <ion-note>{{baby?.sex}} &middot; {{ageFromDateOfBirthday(baby?.dateofbirth)}} {{ ageFromDateOfBirthday(baby?.dateofbirth) === 1 ? 'mes' : 'meses' }} </ion-note>
+                    <ion-note>{{baby?.sex}} &middot; {{ageFromDateOfBirthday(baby?.dateofbirth)}}
+                        {{ ageFromDateOfBirthday(baby?.dateofbirth) === 1 ? 'mes' : 'meses' }} </ion-note>
                 </ion-label>
                 <ion-note slot="end" class="arrow-icon">
                     <ion-icon name="chevron-forward-outline" (click)="goToBabyProfile(baby?.id)"></ion-icon>
                 </ion-note>
+                <ion-item-options side="end">
+                    <ion-item-option (click)="deleteBaby(baby?.id)" color="danger">Delete</ion-item-option>
+                </ion-item-options>
             </ion-item>
         </div>
-
     </ion-list>
-
 
     <ion-infinite-scroll (ionInfinite)=" loadMoreBabys($event)">
         <ion-infinite-scroll-content loadingSpinner="lines-small">
@@ -49,7 +53,7 @@
 
     <ion-fab vertical="bottom" horizontal="end" slot="fixed">
         <ion-fab-button (click)="goToCreateBaby()">
-            <ion-icon name="add"></ion-icon>
+            <ion-icon name="add" class="big"></ion-icon>
         </ion-fab-button>
     </ion-fab>
 

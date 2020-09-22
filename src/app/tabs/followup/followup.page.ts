@@ -1,4 +1,5 @@
-import { NavController, AlertController } from '@ionic/angular';
+import { EditBabyPage } from 'src/app/tabs/modals/edit-baby/edit-baby.page';
+import { NavController, AlertController, ModalController } from '@ionic/angular';
 import { Baby } from 'src/models/baby.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { BabyService } from './../../services/baby.service';
@@ -23,7 +24,8 @@ export class FollowupPage implements OnInit {
     private authService: AuthService,
     private babyService: BabyService,
     private navCtrl: NavController,
-    private alertCtrl: AlertController
+    private alertCtrl: AlertController,
+    private modalCtrl: ModalController
   ) { }
 
   ngOnInit() {
@@ -87,5 +89,24 @@ export class FollowupPage implements OnInit {
     const alive = today - dateOfBirth;
     const month = Math.floor(alive / 2629743000);
     return month;
+  }
+
+  async presentEditModal(babyId: string): Promise<void> {
+    const modal = await this.modalCtrl.create({
+      component: EditBabyPage,
+      swipeToClose: true,
+      componentProps: {
+        id: babyId
+      }
+    });
+    return await modal.present();
+  }
+
+  deleteBaby(babyId: string): void {
+    this.babyService.deleteBaby(babyId).then(() => {
+      this.presentAlert('Success!', 'Your To-Do has been deleted successfully.');
+    }).catch((error) => {
+      this.presentAlert('Error!', error);
+    });
   }
 }

@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { BabyDetailPageRoutingModule } from './baby-detail-routing.module';
 
 import { BabyDetailPage } from './baby-detail.page';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    BabyDetailPageRoutingModule
+    BabyDetailPageRoutingModule,
+    HttpClientModule,
   ],
   declarations: [BabyDetailPage]
 })

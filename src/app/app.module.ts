@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
@@ -31,6 +32,7 @@ import { PopoverComponent } from './popover/popover.component';
     AngularFireAuthModule,
     AngularFirestoreModule,
     AngularFireStorageModule,
+    HttpClientModule
   ],
 
   providers: [

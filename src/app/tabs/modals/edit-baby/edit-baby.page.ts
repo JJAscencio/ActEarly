@@ -18,7 +18,6 @@ export class EditBabyPage implements OnInit {
   baby: Baby;
   loadingIndicator: any;
   loading = false;
-
   babyProfile: any;
 
   constructor(
@@ -111,7 +110,7 @@ export class EditBabyPage implements OnInit {
           text: 'Listo',
           handler: () => {
             this.closeModal();
-            this.navCtrl.navigateRoot(['tabs','followup']);
+            this.navCtrl.navigateRoot(['tabs', 'followup']);
           }
         }
       ]
