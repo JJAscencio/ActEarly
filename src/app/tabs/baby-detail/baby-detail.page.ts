@@ -208,6 +208,9 @@ export class BabyDetailPage implements OnInit {
       // this.duration = this.parseTime(this.config.duration);
     });
     this.mode = 'quiz';
+    console.log(this.quiz.id)
+    console.log(this.quiz.name);
+    
   }
 
   get filteredQuestions() {
@@ -230,6 +233,8 @@ export class BabyDetailPage implements OnInit {
       this.pager.index = index;
       this.mode = 'quiz';
     }
+
+
   }
 
   isAnswered(question: Question) {
@@ -237,11 +242,11 @@ export class BabyDetailPage implements OnInit {
   };
 
   onSubmit() {
+    
     let answers = [];
     this.quiz.questions.forEach(x => answers.push({ 'quizId': this.quiz.id, 'questionId': x.id, 'answered': x.answered }));
 
     // Post your data to the server here. answers contains the questionId and the users' answer.
-    console.log(this.quiz.questions);
-    this.mode = 'result';
+    console.log(answers);
   }
 }

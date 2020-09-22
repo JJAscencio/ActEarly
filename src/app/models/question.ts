@@ -1,4 +1,4 @@
-import { Option } from './option';
+import { Option } from 'src/app/models';
 
 export class Question {
     id: number;
@@ -6,6 +6,7 @@ export class Question {
     questionTypeId: number;
     options: Option[];
     answered: boolean;
+    answer: Option;
 
     constructor(data: any) {
         data = data || {};
