@@ -199,6 +199,8 @@ export class BabyDetailPage implements OnInit {
   // Quiz
 
   loadQuiz(quizName: string) {
+    console.log(this.quiz.id);
+    console.log(this.quiz.name);
     this.quizService.get(quizName).subscribe(res => {
       this.quiz = new Quiz(res);
       this.pager.count = this.quiz.questions.length;
@@ -208,9 +210,6 @@ export class BabyDetailPage implements OnInit {
       // this.duration = this.parseTime(this.config.duration);
     });
     this.mode = 'quiz';
-    console.log(this.quiz.id)
-    console.log(this.quiz.name);
-    
   }
 
   get filteredQuestions() {
@@ -226,6 +225,7 @@ export class BabyDetailPage implements OnInit {
     if (this.config.autoMove) {
       this.goTo(this.pager.index + 1);
     }
+    console.log(option.name);
   }
 
   goTo(index: number) {
@@ -233,8 +233,6 @@ export class BabyDetailPage implements OnInit {
       this.pager.index = index;
       this.mode = 'quiz';
     }
-
-
   }
 
   isAnswered(question: Question) {
@@ -242,7 +240,7 @@ export class BabyDetailPage implements OnInit {
   };
 
   onSubmit() {
-    
+
     let answers = [];
     this.quiz.questions.forEach(x => answers.push({ 'quizId': this.quiz.id, 'questionId': x.id, 'answered': x.answered }));
 

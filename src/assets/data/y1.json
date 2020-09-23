@@ -1,13 +1,11 @@
 {
-    "id": 3,
-    "name": "6 meses",
-    "description": "Children Milestones alert quizz for 6 months",
-    "questions": [
-        {
+    "id": 4,
+    "name": "1 año",
+    "description": "Children Milestones alert quizz for 1 year",
+    "questions": [{
             "id": 0,
-            "name": "No responde a ruidos Fuertes",
-            "options": [
-                {
+            "name": "No gatea",
+            "options": [{
                     "id": 0,
                     "questionId": 0,
                     "name": "Si"
@@ -22,13 +20,12 @@
                     "questionId": 0,
                     "name": "No estoy Seguro"
                 }
-            ] 
+            ]
         },
         {
             "id": 1,
-            "name": "No sigue a las cosas con la vista mientras se mueven",
-            "options": [
-                {
+            "name": "No puede permanecer de pie ni aunque tenga ayuda",
+            "options": [{
                     "id": 0,
                     "questionId": 1,
                     "name": "Si"
@@ -43,13 +40,12 @@
                     "questionId": 1,
                     "name": "No estoy Seguro"
                 }
-            ] 
+            ]
         },
         {
             "id": 2,
-            "name": "No le sonrie a las personas",
-            "options": [
-                {
+            "name": "No busca cosas que te ha visto esconder",
+            "options": [{
                     "id": 0,
                     "questionId": 2,
                     "name": "Si"
@@ -64,13 +60,12 @@
                     "questionId": 2,
                     "name": "No estoy Seguro"
                 }
-            ] 
+            ]
         },
         {
             "id": 3,
-            "name": "No se lleva las manos a la boca",
-            "options": [
-                {
+            "name": "No dice palabras sencillas como 'mamá' o 'papá",
+            "options": [{
                     "id": 0,
                     "questionId": 3,
                     "name": "Si"
@@ -85,13 +80,12 @@
                     "questionId": 3,
                     "name": "No estoy Seguro"
                 }
-            ] 
+            ]
         },
         {
             "id": 4,
-            "name": "No puede sostener la cabeza en alto cuando esta boca abajo",
-            "options": [
-                {
+            "name": "No aprender a usar gestos como saludar con la mano o mover la cabeza como diciendo 'no",
+            "options": [{
                     "id": 0,
                     "questionId": 4,
                     "name": "Si"
@@ -106,13 +100,12 @@
                     "questionId": 4,
                     "name": "No estoy Seguro"
                 }
-            ] 
+            ]
         },
         {
             "id": 5,
-            "name": "No responde a ruidos Fuertes",
-            "options": [
-                {
+            "name": "No señala cosas",
+            "options": [{
                     "id": 0,
                     "questionId": 5,
                     "name": "Si"
@@ -127,8 +120,27 @@
                     "questionId": 5,
                     "name": "No estoy Seguro"
                 }
-            ] 
+            ]
+        },
+        {
+            "id": 6,
+            "name": "Pierde habilidades que había adquirido",
+            "options": [{
+                    "id": 0,
+                    "questionId": 6,
+                    "name": "Si"
+                },
+                {
+                    "id": 1,
+                    "questionId": 6,
+                    "name": "Aun no"
+                },
+                {
+                    "id": 2,
+                    "questionId": 6,
+                    "name": "No estoy Seguro"
+                }
+            ]
         }
     ]
-
 }

@@ -70,7 +70,7 @@
             </div>
           </div>
         </div>
-        <hr/>
+        <hr />
         <div class="text-center">
           <button class="btn btn-default mx-1" *ngIf="config.allowBack" (click)="goTo(0);">First</button>
           <button class="btn btn-default mx-1" *ngIf="config.allowBack" (click)="goTo(pager.index - 1);">Prev</button>
@@ -92,9 +92,10 @@
           <div class="result-question">
             <h5>{{index + 1}}. {{question.name}}</h5>
             <div class="row">
-              <div class="col-6" *ngFor="let Option of question.options">
-                <input id="{{Option.id}}" type="checkbox" disabled="disabled" [(ngModel)]="Option.selected" (change)="onSelect(question, option);"/>
-                {{Option.name}}
+              <div class="col-6" *ngFor="let option of question.options">
+                <input id="{{option.id}}" type="checkbox" [(ngModel)]="option.selected"
+                  (change)="onSelect(question, option);" />
+                {{option.name}}
               </div>
             </div>
             <!-- <div class="p-1 m-2 alert {{ isCorrect(question) == 'correct'? 'alert-success': 'alert-danger'}}">Your
