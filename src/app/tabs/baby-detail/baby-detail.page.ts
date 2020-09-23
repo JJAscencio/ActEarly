@@ -24,11 +24,13 @@ export class BabyDetailPage implements OnInit {
   step: 0;
   segment = 'criticos';
   currentPopover = null;
+  selectedOption: string = '';
 
   // Quizz
 
   quizes: any[];
   quiz: Quiz = new Quiz(null);
+  option: Option = new Option(null); //
   mode = 'quiz';
   quizName: string;
   config: QuizConfig = {
@@ -193,7 +195,6 @@ export class BabyDetailPage implements OnInit {
     const month = Math.floor(alive / 2629743000);
 
     return month;
-
   }
 
   // Quiz
@@ -217,7 +218,12 @@ export class BabyDetailPage implements OnInit {
       this.quiz.questions.slice(this.pager.index, this.pager.index + this.pager.size) : [];
   }
 
-  onSelect(question: Question, option: Option) {
+  onSelect(question: Question, option: Option, event: any) {
+
+    this.selectedOption = event.target.value;
+    console.log(this.selectedOption);
+
+
     if (question.questionTypeId === 1) {
       question.options.forEach((x) => { if (x.id !== option.id) x.selected = false; });
     }
@@ -225,7 +231,7 @@ export class BabyDetailPage implements OnInit {
     if (this.config.autoMove) {
       this.goTo(this.pager.index + 1);
     }
-    console.log(option.name);
+
   }
 
   goTo(index: number) {

@@ -1,9 +1,16 @@
 ion-content {
-    ion-grid, .header-container{
+
+    ion-grid,
+    .header-container {
         padding: 5px 16px 5px 16px;
     }
+
     ion-textarea {
         font-size: 12px;
+    }
+
+    ion-toggle {
+        width: 20px;
     }
 
 }

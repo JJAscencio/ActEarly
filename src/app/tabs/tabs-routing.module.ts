@@ -12,7 +12,7 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren: () => import('./create-baby-profile/create-baby-profile.module').then( m => m.CreateBabyProfilePageModule)
+            loadChildren: () => import('./create-baby-profile/create-baby-profile.module').then(m => m.CreateBabyProfilePageModule)
           }
         ]
       },
@@ -27,6 +27,15 @@ const routes: Routes = [
             path: 'baby/:babyId',
             loadChildren: () => import('./baby-detail/baby-detail.module').then(m => m.BabyDetailPageModule)
           }
+        ]
+      },
+      {
+        path: 'seguimiento',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('./seguimiento/seguimiento.module').then(m => m.SeguimientoPageModule)
+          },
         ]
       },
       {
@@ -61,9 +70,8 @@ const routes: Routes = [
   },
   {
     path: 'edit-baby',
-    loadChildren: () => import('./modals/edit-baby/edit-baby.module').then( m => m.EditBabyPageModule)
+    loadChildren: () => import('./modals/edit-baby/edit-baby.module').then(m => m.EditBabyPageModule)
   },
-
 ];
 
 @NgModule({
