@@ -253,4 +253,10 @@ export class BabyDetailPage implements OnInit {
     // Post your data to the server here. answers contains the questionId and the users' answer.
     console.log(answers);
   }
+
+
+  radioGroupChange(event) {
+    console.log(event.detail.value);
+  }
+
 }

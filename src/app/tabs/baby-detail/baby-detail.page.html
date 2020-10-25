@@ -64,14 +64,14 @@
             <span [innerHTML]="question.name" style="font-size:1.125rem"></span>
           </h3>
           <div class="row text-left options mx-0 px-4 py-2">
-            <div class="col-12" *ngFor="let option of question.options">
-              <div class="option">
-                <label class="font-weight-normal" [attr.for]="option.id">
-                  <input id="{{option.id}}" type="checkbox" [(ngModel)]="option.selected"
-                    (change)="onSelect(question, option);" /> {{option.name}}
-                </label>
-              </div>
-            </div>
+
+            <ion-radio-group allow-empty-selection="true" name="radio-group" (ionChange)="radioGroupChange($event)"
+              #radioGroup>
+              <ion-item lines="none" *ngFor="let option of question.options">
+                <ion-text>{{option.name}}</ion-text>
+                <ion-radio slot="start" color="primary" value="{{option.name}}"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
           </div>
         </div>
         <hr />
@@ -121,23 +121,26 @@
     <ion-grid>
       <ion-row>
         <ion-col>
-          <h5 style="text-align: center;">{{ageFromDateOfBirthday(baby?.dateofbirth)}}
+          <h5 class="mx-3" style="text-align: center;">{{ageFromDateOfBirthday(baby?.dateofbirth)}}
             {{ ageFromDateOfBirthday(baby?.dateofbirth) === 1 ? 'mes' : 'meses' }}</h5>
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
-          <p style="padding-left: 20px; padding-right: 20px; font-size: small;">Registra una nota acerca de los hitos de
+          <p class="mx-3" style="font-size: small;">Registra una nota acerca de los hitos de
             {{ageFromDateOfBirthday(baby?.dateofbirth)}}
             {{ ageFromDateOfBirthday(baby?.dateofbirth) === 1 ? 'mes' : 'meses' }} de {{baby?.name}} que quisieras
             platicar
             con el doctor:</p>
         </ion-col>
       </ion-row>
-      <ion-item>
+      <div class="mx-3">
         <!-- <ion-input placeholder="Ingrese sus notas aqui"></ion-input> -->
-        <textarea class="form-control py-2" id="exampleFormControlTextarea1" rows="3"></textarea>
-      </ion-item>
+        <textarea class="form-control py-2" id="exampleFormControlTextarea1" style="resize: none;" rows="3"></textarea>
+        <ion-button class="my-3" expand="block" fill="solid">Listo
+        </ion-button>
+      </div>
+
     </ion-grid>
   </ng-template>
 
@@ -145,7 +148,7 @@
     <ion-grid>
       <ion-row>
         <ion-col>
-          <h2>Resultados</h2>
+          <h5 class="mx-3">Resultados</h5>
         </ion-col>
       </ion-row>
     </ion-grid>
