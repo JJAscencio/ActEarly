@@ -73,15 +73,15 @@
               </ion-item>
             </ion-radio-group>
           </div>
+          <div class="text-center">
+            <button class="btn btn-default mx-1" *ngIf="config.allowBack" (click)="goTo(0);">First</button>
+            <button class="btn btn-default mx-1" *ngIf="config.allowBack" (click)="goTo(pager.index - 1);">Prev</button>
+            <button class="btn btn-primary mx-1" (click)="goTo(pager.index + 1); onSubmit(question.options);">Next</button>
+            <button class="btn btn-default mx-1" *ngIf="config.allowBack" (click)="goTo(pager.count - 1);">Last</button>
+            <!--<pagination *ngIf="config.showPager" direction-links="false" total-items="totalItems" items-per-page="itemsPerPage" ng-model="currentPage" ng-change="pageChanged()"></pagination>-->
+          </div>
         </div>
         <hr />
-        <div class="text-center">
-          <button class="btn btn-default mx-1" *ngIf="config.allowBack" (click)="goTo(0);">First</button>
-          <button class="btn btn-default mx-1" *ngIf="config.allowBack" (click)="goTo(pager.index - 1);">Prev</button>
-          <button class="btn btn-primary mx-1" (click)="goTo(pager.index + 1);">Next</button>
-          <button class="btn btn-default mx-1" *ngIf="config.allowBack" (click)="goTo(pager.count - 1);">Last</button>
-          <!--<pagination *ngIf="config.showPager" direction-links="false" total-items="totalItems" items-per-page="itemsPerPage" ng-model="currentPage" ng-change="pageChanged()"></pagination>-->
-        </div>
       </div>
 
       <div class="row text-center" *ngIf="mode=='review'">

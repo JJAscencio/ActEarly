@@ -25,6 +25,7 @@ export class BabyDetailPage implements OnInit {
   segment = 'criticos';
   currentPopover = null;
   selectedOption: string = '';
+  tempSelect: any;
 
   // Quizz
 
@@ -205,10 +206,6 @@ export class BabyDetailPage implements OnInit {
     this.quizService.get(quizName).subscribe(res => {
       this.quiz = new Quiz(res);
       this.pager.count = this.quiz.questions.length;
-      // this.startTime = new Date();
-      // this.ellapsedTime = '00:00';
-      // this.timer = setInterval(() => { this.tick(); }, 1000);
-      // this.duration = this.parseTime(this.config.duration);
     });
     this.mode = 'quiz';
   }
@@ -245,18 +242,24 @@ export class BabyDetailPage implements OnInit {
     return question.options.find(x => x.selected) ? 'Answered' : 'Not Answered';
   };
 
-  onSubmit() {
+  onSubmit(options: any) {
 
-    let answers = [];
-    this.quiz.questions.forEach(x => answers.push({ 'quizId': this.quiz.id, 'questionId': x.id, 'answered': x.answered }));
-
-    // Post your data to the server here. answers contains the questionId and the users' answer.
-    console.log(answers);
+    switch (this.tempSelect) {
+      case 'Si':
+        console.log(options[0].questionId);
+        break;
+      case 'Aun no':
+        break;
+      case 'No estoy Seguro':
+        break;
+    }
+    this.tempSelect = null;
   }
 
 
   radioGroupChange(event) {
-    console.log(event.detail.value);
+    this.tempSelect = event.detail.value;
+    console.log(this.tempSelect);
   }
 
 }

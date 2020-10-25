@@ -3,22 +3,22 @@
     "name": "4 meses",
     "description": "Children Milestones alert quizz for 4 months",
     "questions": [{
-            "id": 0,
+            "id": 6,
             "name": "No mira las cosas mientras se mueven",
             "questionTypeId": 1,
             "options": [{
                     "id": 0,
-                    "questionId": 0,
+                    "questionId": 6,
                     "name": "Si"
                 },
                 {
                     "id": 1,
-                    "questionId": 0,
+                    "questionId": 6,
                     "name": "Aun no"
                 },
                 {
-                    "id": 1,
-                    "questionId": 0,
+                    "id": 2,
+                    "questionId": 6,
                     "name": "No estoy Seguro"
                 }
             ],
@@ -29,22 +29,22 @@
             }
         },
         {
-            "id": 1,
+            "id": 7,
             "name": "No le sonríe a las personas",
             "questionTypeId": 1,
             "options": [{
                     "id": 0,
-                    "questionId": 1,
+                    "questionId": 7,
                     "name": "Si"
                 },
                 {
                     "id": 1,
-                    "questionId": 1,
+                    "questionId": 7,
                     "name": "Aun no"
                 },
                 {
-                    "id": 1,
-                    "questionId": 1,
+                    "id": 2,
+                    "questionId": 7,
                     "name": "No estoy Seguro"
                 }
             ],
@@ -55,22 +55,22 @@
             }
         },
         {
-            "id": 2,
+            "id": 8,
             "name": "No puede sostener la cabeza con firmeza",
             "questionTypeId": 1,
             "options": [{
                     "id": 0,
-                    "questionId": 2,
+                    "questionId": 8,
                     "name": "Si"
                 },
                 {
                     "id": 1,
-                    "questionId": 2,
+                    "questionId": 8,
                     "name": "Aun no"
                 },
                 {
                     "id": 2,
-                    "questionId": 2,
+                    "questionId": 8,
                     "name": "No estoy Seguro"
                 }
             ],
@@ -81,22 +81,22 @@
             }
         },
         {
-            "id": 3,
+            "id": 9,
             "name": "No arrulla ni hace sonidos con la boca",
             "questionTypeId": 1,
             "options": [{
                     "id": 0,
-                    "questionId": 3,
+                    "questionId": 9,
                     "name": "Si"
                 },
                 {
                     "id": 1,
-                    "questionId": 3,
+                    "questionId": 9,
                     "name": "Aun no"
                 },
                 {
                     "id": 2,
-                    "questionId": 3,
+                    "questionId": 9,
                     "name": "No estoy Seguro"
                 }
             ],
@@ -107,22 +107,22 @@
             }
         },
         {
-            "id": 4,
+            "id": 10,
             "name": "No se lleva las cosas a la boca",
             "questionTypeId": 1,
             "options": [{
                     "id": 0,
-                    "questionId": 4,
+                    "questionId": 10,
                     "name": "Si"
                 },
                 {
                     "id": 1,
-                    "questionId": 4,
+                    "questionId": 10,
                     "name": "Aun no"
                 },
                 {
                     "id": 2,
-                    "questionId": 4,
+                    "questionId": 10,
                     "name": "No estoy Seguro"
                 }
             ],
@@ -133,22 +133,22 @@
             }
         },
         {
-            "id": 5,
+            "id": 11,
             "name": "No empuja con las piernas cuando esta sobre una superficie firme",
             "questionTypeId": 1,
             "options": [{
                     "id": 0,
-                    "questionId": 5,
+                    "questionId": 11,
                     "name": "Si"
                 },
                 {
                     "id": 1,
-                    "questionId": 5,
+                    "questionId": 11,
                     "name": "Aun no"
                 },
                 {
                     "id": 2,
-                    "questionId": 5,
+                    "questionId": 11,
                     "name": "No estoy Seguro"
                 }
             ],
@@ -159,22 +159,22 @@
             }
         },
         {
-            "id": 6,
+            "id": 12,
             "name": "Tiene dificultad para mover uno o los dos ojos en todoas las direcciones",
             "questionTypeId": 1,
             "options": [{
                     "id": 0,
-                    "questionId": 6,
+                    "questionId": 12,
                     "name": "Si"
                 },
                 {
                     "id": 1,
-                    "questionId": 6,
+                    "questionId": 12,
                     "name": "Aun no"
                 },
                 {
                     "id": 2,
-                    "questionId": 6,
+                    "questionId": 12,
                     "name": "No estoy Seguro"
                 }
             ],
