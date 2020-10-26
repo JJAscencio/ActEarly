@@ -60,7 +60,7 @@
             <div class="badge badge-info">Question {{pager.index + 1}} of {{pager.count}}.</div>
           </div>
           <!-- <div *ngIf="config.duration" class="badge badge-info float-right">Time: {{ellapsedTime}} / {{duration}}</div> -->
-          <h3 class="font-weight-bold px-1" style="font-size: 1rem; text-align: center">{{pager.index + 1}}.
+          <h3 class="font-weight-bold px-3" style="font-size: 1rem; text-align: center">{{pager.index + 1}}.
             <span [innerHTML]="question.name" style="font-size:1.125rem"></span>
           </h3>
           <div class="row text-left options mx-0 px-4 py-2">
@@ -76,12 +76,12 @@
           <div class="text-center">
             <button class="btn btn-default mx-1" *ngIf="config.allowBack" (click)="goTo(0);">First</button>
             <button class="btn btn-default mx-1" *ngIf="config.allowBack" (click)="goTo(pager.index - 1);">Prev</button>
-            <button class="btn btn-primary mx-1" (click)="goTo(pager.index + 1); onSubmit(question.options);">Next</button>
+            <button class="btn btn-primary mx-1"
+              (click)="goTo(pager.index + 1); onSubmit(question.options);">Next</button>
             <button class="btn btn-default mx-1" *ngIf="config.allowBack" (click)="goTo(pager.count - 1);">Last</button>
             <!--<pagination *ngIf="config.showPager" direction-links="false" total-items="totalItems" items-per-page="itemsPerPage" ng-model="currentPage" ng-change="pageChanged()"></pagination>-->
           </div>
         </div>
-        <hr />
       </div>
 
       <div class="row text-center" *ngIf="mode=='review'">
