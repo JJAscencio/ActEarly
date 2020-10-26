@@ -1,5 +1,7 @@
 {
   "name": "ActEarly",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular"
 }
