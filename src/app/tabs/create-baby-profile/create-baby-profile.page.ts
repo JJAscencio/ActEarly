@@ -69,6 +69,7 @@ export class CreateBabyProfilePage implements OnInit {
           uid: this.user.id,
           username: this.user.username,
           createdAt: Date.now(),
+          responses: []
 
         };
         await this.babyService.createBaby(baby);

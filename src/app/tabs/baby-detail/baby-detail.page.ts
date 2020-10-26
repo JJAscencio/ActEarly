@@ -201,8 +201,6 @@ export class BabyDetailPage implements OnInit {
   // Quiz
 
   loadQuiz(quizName: string) {
-    console.log(this.quiz.id);
-    console.log(this.quiz.name);
     this.quizService.get(quizName).subscribe(res => {
       this.quiz = new Quiz(res);
       this.pager.count = this.quiz.questions.length;
@@ -246,20 +244,44 @@ export class BabyDetailPage implements OnInit {
 
     switch (this.tempSelect) {
       case 'Si':
-        console.log(options[0].questionId);
+        this.baby.responses[options[0].questionId] = 0;
         break;
       case 'Aun no':
+        this.baby.responses[options[1].questionId] = 1;
         break;
       case 'No estoy Seguro':
+        this.baby.responses[options[2].questionId] = 2;
+        break;
+      default:
+        this.baby.responses[options[2].questionId] = 3;
+
+        // console.log(options[0].questionId);
+
+        // console.log(this.baby.responses[options[0].questionId]);
         break;
     }
     this.tempSelect = null;
+    this.updateBaby();
   }
 
 
   radioGroupChange(event) {
     this.tempSelect = event.detail.value;
-    console.log(this.tempSelect);
   }
 
+
+  async updateBaby() {
+
+    const updatedBaby = {
+      responses: this.baby.responses
+    };
+
+    try {
+      await this.babyService.updateBaby(this.baby.id.toString(), updatedBaby);
+    } catch (error) {
+      console.log(error);
+
+    }
+
+  }
 }
