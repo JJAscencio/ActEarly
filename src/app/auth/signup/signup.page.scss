@@ -1,7 +1,12 @@
 ion-content {
 
-    ion-grid, .header-container{
-        padding: 5px 16px 5px 16px;           
+    ion-grid,
+    .header-container {
+        padding: 5px 16px 5px 16px;
+    }
+
+    .header {
+        padding: 5px 20px 5px 20px;
     }
 }
 

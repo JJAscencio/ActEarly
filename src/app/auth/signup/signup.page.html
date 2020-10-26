@@ -1,21 +1,21 @@
 <ion-header>
-    <ion-toolbar>
+    <!-- <ion-toolbar>
         <ion-title>Crear una cuenta</ion-title>
-    </ion-toolbar>
+    </ion-toolbar> -->
 </ion-header>
 
 <ion-content>
     <div class="header-container">
         <!-- <h3>¡Registrate para comenzar el seguimiento del desarrollo de tus hijos! </h3> -->
     </div>
-    
+
     <form [formGroup]="signUpForm" class="form">
         <ion-grid>
-            <ion-label>Ingresa tu información personal</ion-label>
+            <h5 class="header">Ingresa tu información personal</h5>
             <ion-row>
                 <ion-col size="12">
                     <ion-item>
-                        <ion-label position="floating">Nombre</ion-label>
+                        <!-- <ion-label position="floating">Nombre</ion-label> -->
                         <ion-input formControlName="name" placeholder="Nombre"></ion-input>
                     </ion-item>
                 </ion-col>
@@ -24,7 +24,7 @@
             <ion-row>
                 <ion-col size="12">
                     <ion-item>
-                        <ion-label position="floating">Apellido</ion-label>
+                        <!-- <ion-label position="floating">Apellido</ion-label> -->
                         <ion-input formControlName="lname" placeholder="Apellido"></ion-input>
                     </ion-item>
                 </ion-col>
@@ -35,7 +35,8 @@
                 <ion-col size="12">
                     <ion-item>
                         <ion-label>Fecha de nacimiento </ion-label>
-                        <ion-datetime formControlName="birthdate" value="1990-02-19" placeholder="Select Date"></ion-datetime>
+                        <ion-datetime formControlName="birthdate" value="1990-02-19" placeholder="Select Date">
+                        </ion-datetime>
                     </ion-item>
                 </ion-col>
             </ion-row>
@@ -44,7 +45,8 @@
                 <ion-col size="12">
                     <ion-item>
                         <ion-label position="floating">Numero de contacto</ion-label>
-                        <ion-input formControlName="phone" type="text" name="phone" placeholder="(664)-123-45-67"></ion-input>
+                        <ion-input formControlName="phone" type="text" name="phone" placeholder="(664)-123-45-67">
+                        </ion-input>
                     </ion-item>
                 </ion-col>
             </ion-row>
@@ -52,7 +54,7 @@
             <ion-row>
                 <ion-col size="12">
                     <ion-item>
-                        <ion-label position="floating">Nombre de usuario</ion-label>
+                        <!-- <ion-label position="floating">Nombre de usuario</ion-label> -->
                         <ion-input formControlName="username" placeholder="Nombre de usuario"></ion-input>
                     </ion-item>
                 </ion-col>
@@ -61,7 +63,7 @@
             <ion-row>
                 <ion-col size="12">
                     <ion-item>
-                        <ion-label position="floating">Ingresa tu correo electronico</ion-label>
+                        <!-- <ion-label position="floating">Ingresa tu correo electronico</ion-label> -->
                         <ion-input formControlName="email" placeholder="Correo electronico"></ion-input>
                     </ion-item>
                 </ion-col>
