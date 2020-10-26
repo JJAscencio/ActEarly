@@ -24,7 +24,11 @@
     "@capacitor/core": "2.4.1",
     "@ionic-native/core": "^5.0.7",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "@ionic-native/local-notifications": "^5.29.0",
+=======
+    "@ionic-native/push": "^5.28.0",
+>>>>>>> c40f80524f26fddd7e407f147d7b29511df2f487
 =======
     "@ionic-native/push": "^5.28.0",
 >>>>>>> c40f80524f26fddd7e407f147d7b29511df2f487
