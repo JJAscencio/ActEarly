@@ -83,7 +83,6 @@ export class BabyDetailPage implements OnInit {
     this.quizName = this.quizes[0].id;
     this.loadQuiz(this.quizName);
 
-
   }
 
   // test
@@ -263,7 +262,6 @@ export class BabyDetailPage implements OnInit {
     this.tempSelect = null;
     this.updateBaby();
   }
-
 
   radioGroupChange(event) {
     this.tempSelect = event.detail.value;
