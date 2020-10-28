@@ -1,5 +1,11 @@
 <ion-header>
+
   <ion-toolbar>
+    <ion-buttons slot="primary">
+      <ion-button (click)="logout()">
+        <ion-icon slot="icon-only" name="exit-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
     <ion-title>Información y configuración</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -26,7 +32,7 @@
         <ion-toggle slot="start" name="blueberry" checked></ion-toggle>
       </div>
       <div class="col-10 px-0">
-        <p  class="mb-0 mt-2"style="font-size: 0.8125rem;">Notificaciones de recomendaciones
+        <p class="mb-0 mt-2" style="font-size: 0.8125rem;">Notificaciones de recomendaciones
         </p>
       </div>
       <div class="col-2 px-0" style="text-align: center;">

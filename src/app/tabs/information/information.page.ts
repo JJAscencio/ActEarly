@@ -1,3 +1,5 @@
+import { NavController } from '@ionic/angular';
+import { AuthService } from 'src/app/services/auth.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InformationPage implements OnInit {
 
-  constructor() { }
+  constructor(
+    private authService: AuthService,
+    private navCtrl: NavController
+  ) { }
 
   ngOnInit() {
+  }
+
+
+  logout(): void {
+    this.authService.logout().then(() => {
+      this.navCtrl.navigateRoot(['']);
+    });
   }
 
 }

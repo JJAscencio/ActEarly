@@ -4,7 +4,8 @@
 
 .arrow-icon {
   color: gray;
-  transform: translate(0px, 15px);
+  transform: translate(0px, 10px);
+  font-size: 15px;
 }
 
 .add-icon {
@@ -43,4 +44,20 @@
 
 ion-content ion-toolbar {
   --background: translucent;
+}
+
+ion-item {
+  padding: 0px 0px 0px 0px;
+}
+
+.square {
+  display: inline-block;
+  height: 80px;
+  width: 80px;
+  background-color: rgb(10, 75, 172);
+
+}
+
+ion-label {
+  padding: 0px 10px 0px 10px;
 }

@@ -158,4 +158,8 @@ export class SignupPage implements OnInit {
   public onConfirmPasswordToggle(): void {
     this.showConfirmedPassword = !this.showConfirmedPassword;
   }
+
+  goLogIn(): void {
+    this.navCtrl.navigateForward(['auth/login']);
+  }
 }

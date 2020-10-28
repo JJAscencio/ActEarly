@@ -1,22 +1,22 @@
-<ion-header>
-    <!-- <ion-toolbar>
-        <ion-title>Crear una cuenta</ion-title>
-    </ion-toolbar> -->
+<ion-header class="ion-no-border">
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
-    <div class="header-container">
-        <!-- <h3>¡Registrate para comenzar el seguimiento del desarrollo de tus hijos! </h3> -->
-    </div>
+
+    <h5 class="header" style="text-align: center;">Ingresa tu información personal</h5>
 
     <form [formGroup]="signUpForm" class="form">
         <ion-grid>
-            <h5 class="header">Ingresa tu información personal</h5>
             <ion-row>
                 <ion-col size="12">
                     <ion-item>
-                        <!-- <ion-label position="floating">Nombre</ion-label> -->
-                        <ion-input formControlName="name" placeholder="Nombre"></ion-input>
+                        <ion-label position="floating">Nombre</ion-label>
+                        <ion-input formControlName="name"></ion-input>
                     </ion-item>
                 </ion-col>
             </ion-row>
@@ -24,8 +24,8 @@
             <ion-row>
                 <ion-col size="12">
                     <ion-item>
-                        <!-- <ion-label position="floating">Apellido</ion-label> -->
-                        <ion-input formControlName="lname" placeholder="Apellido"></ion-input>
+                        <ion-label position="floating">Apellido</ion-label>
+                        <ion-input formControlName="lname"></ion-input>
                     </ion-item>
                 </ion-col>
             </ion-row>
@@ -34,8 +34,8 @@
             <ion-row>
                 <ion-col size="12">
                     <ion-item>
-                        <ion-label>Fecha de nacimiento </ion-label>
-                        <ion-datetime formControlName="birthdate" value="1990-02-19" placeholder="Select Date">
+                        <ion-label position="floating">Fecha de nacimiento </ion-label>
+                        <ion-datetime formControlName="birthdate">
                         </ion-datetime>
                     </ion-item>
                 </ion-col>
@@ -45,7 +45,7 @@
                 <ion-col size="12">
                     <ion-item>
                         <ion-label position="floating">Numero de contacto</ion-label>
-                        <ion-input formControlName="phone" type="text" name="phone" placeholder="(664)-123-45-67">
+                        <ion-input formControlName="phone" type="text" name="phone">
                         </ion-input>
                     </ion-item>
                 </ion-col>
@@ -54,8 +54,8 @@
             <ion-row>
                 <ion-col size="12">
                     <ion-item>
-                        <!-- <ion-label position="floating">Nombre de usuario</ion-label> -->
-                        <ion-input formControlName="username" placeholder="Nombre de usuario"></ion-input>
+                        <ion-label position="floating">Nombre de usuario</ion-label>
+                        <ion-input formControlName="username"></ion-input>
                     </ion-item>
                 </ion-col>
             </ion-row>
@@ -63,8 +63,8 @@
             <ion-row>
                 <ion-col size="12">
                     <ion-item>
-                        <!-- <ion-label position="floating">Ingresa tu correo electronico</ion-label> -->
-                        <ion-input formControlName="email" placeholder="Correo electronico"></ion-input>
+                        <ion-label position="floating">Correo electronico</ion-label>
+                        <ion-input formControlName="email"></ion-input>
                     </ion-item>
                 </ion-col>
             </ion-row>
@@ -95,8 +95,20 @@
 
             <ion-row>
                 <ion-col size="12">
-                    <ion-button color="primary" expand="full" fill="solid" (click)="onSubmit()">Registrarse
+                    <ion-button size="medium" expand="block" fill="solid" color="primary" (click)="onSubmit()"
+                        class="my-2" style="font-size: x-small">Registrate
                     </ion-button>
+                </ion-col>
+
+
+            </ion-row>
+
+            <ion-row class="my-5 footer" style=" text-align: center;">
+                <ion-col>
+                    <ion-label style="color: gray; font-size: small">¿Ya tiene cuenta? </ion-label>
+                    <br>
+                    <ion-label (click)="goLogIn()" class="forget my-0" expand="block" fill="none" color="primary"
+                        style="color:#2E5CEF; font-size: small; font-weight: bold;">¡Inicia Sesión!</ion-label>
                 </ion-col>
             </ion-row>
         </ion-grid>
@@ -104,8 +116,8 @@
 </ion-content>
 
 <ion-footer>
-    <ion-toolbar>
+    <!-- <ion-toolbar>
         <ion-button color="success" (click)="goToLogin()" expand="full" fill="solid">¿Ya tienes una cuenta? ¡Inicia
             sesión!</ion-button>
-    </ion-toolbar>
+    </ion-toolbar> -->
 </ion-footer>

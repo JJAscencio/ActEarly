@@ -1,0 +1,14 @@
+{
+  "appId": "io.ionic.starter",
+  "appName": "ActEarly",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "src",
+
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
+  "cordova": {}
+}
