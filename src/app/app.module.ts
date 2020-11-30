@@ -18,6 +18,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { environment } from 'src/environments/environment';
 import { PopoverComponent } from './popover/popover.component';
 
+import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player/ngx';
+
 
 @NgModule({
   declarations: [AppComponent,PopoverComponent],
@@ -38,6 +40,7 @@ import { PopoverComponent } from './popover/popover.component';
   providers: [
     StatusBar,
     SplashScreen,
+    YoutubeVideoPlayer,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

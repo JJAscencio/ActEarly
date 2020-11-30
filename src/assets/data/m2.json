@@ -6,6 +6,7 @@
             "id": 0,
             "name": "No responde a ruidos Fuertes",
             "questionTypeId": 1,
+            "note": "",
             "options": [{
                     "id": 0,
                     "questionId": 0,
@@ -32,6 +33,7 @@
             "id": 1,
             "name": "No sigue a las cosas con la vista mientras se mueven",
             "questionTypeId": 1,
+            "note": "",
             "options": [{
                     "id": 0,
                     "questionId": 1,
@@ -58,6 +60,7 @@
             "id": 2,
             "name": "No le sonrie a las personas",
             "questionTypeId": 1,
+            "note": "",
             "options": [{
                     "id": 0,
                     "questionId": 2,
@@ -84,6 +87,7 @@
             "id": 3,
             "name": "No se lleva las manos a la boca",
             "questionTypeId": 1,
+            "note": "",
             "options": [{
                     "id": 0,
                     "questionId": 3,
@@ -110,6 +114,7 @@
             "id": 4,
             "name": "No puede sostener la cabeza en alto cuando esta boca abajo",
             "questionTypeId": 1,
+            "note": "",
             "options": [{
                     "id": 0,
                     "questionId": 4,
@@ -136,6 +141,7 @@
             "id": 5,
             "name": "No responde a ruidos Fuertes",
             "questionTypeId": 1,
+            "note": "",
             "options": [{
                     "id": 0,
                     "questionId": 5,

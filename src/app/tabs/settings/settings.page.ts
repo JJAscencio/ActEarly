@@ -1,13 +1,13 @@
 import { NavController } from '@ionic/angular';
-import { AuthService } from 'src/app/services/auth.service';
+import { AuthService } from './../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-information',
-  templateUrl: './information.page.html',
-  styleUrls: ['./information.page.scss'],
+  selector: 'app-settings',
+  templateUrl: './settings.page.html',
+  styleUrls: ['./settings.page.scss'],
 })
-export class InformationPage implements OnInit {
+export class SettingsPage implements OnInit {
 
   constructor(
     private authService: AuthService,

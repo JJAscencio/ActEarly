@@ -10,4 +10,5 @@ export interface Baby {
     doctorsemail: string,
     createdAt: string,
     responses: number[],
+    notes: string [],
 }

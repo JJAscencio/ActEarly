@@ -48,11 +48,11 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'information',
+        path: 'settings',
         children: [
           {
             path: '',
-            loadChildren: () => import('./information/information.module').then(m => m.InformationPageModule)
+            loadChildren: () => import('./settings/settings.module').then(m => m.SettingsPageModule)
           }
         ]
       },

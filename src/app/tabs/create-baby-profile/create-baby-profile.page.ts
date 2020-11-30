@@ -69,7 +69,8 @@ export class CreateBabyProfilePage implements OnInit {
           uid: this.user.id,
           username: this.user.username,
           createdAt: Date.now(),
-          responses: Array.apply(null, Array(85)).map(Number.prototype.valueOf, 3)
+          responses: Array.apply(null, Array(85)).map(Number.prototype.valueOf, 3),
+          notes: Array.apply(null, Array(85)).map(String.prototype.valueOf, '')
 
         };
         await this.babyService.createBaby(baby);
@@ -139,4 +140,4 @@ export class CreateBabyProfilePage implements OnInit {
   }
 
 
-  }
+}

@@ -8,7 +8,10 @@ import { AuthService } from 'src/app/services/auth.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PopoverComponent } from 'src/app/popover/popover.component';
-import { Option, Question, Quiz, QuizConfig } from 'src/app/models'
+import { Option, Question, Quiz, QuizConfig } from 'src/app/models';
+import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player/ngx';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+
 
 
 @Component({
@@ -18,6 +21,7 @@ import { Option, Question, Quiz, QuizConfig } from 'src/app/models'
 })
 export class BabyDetailPage implements OnInit {
 
+  apiKey: 'AIzaSyAY6cIG1QpxqJbG5ApHghn-gSl0s_Trw6M';
   user: any;
   baby: any;
   babyId: string;
@@ -26,6 +30,7 @@ export class BabyDetailPage implements OnInit {
   currentPopover = null;
   selectedOption: string = '';
   tempSelect: any;
+  vidUrl: SafeResourceUrl;
 
   // Quizz
 
@@ -70,6 +75,8 @@ export class BabyDetailPage implements OnInit {
     private modalCtrl: ModalController,
     private popoverCtrl: PopoverController,
     private quizService: QuizService,
+    private domSanitizer: DomSanitizer,
+    private youtube: YoutubeVideoPlayer
   ) { }
 
   ngOnInit() {
@@ -80,9 +87,16 @@ export class BabyDetailPage implements OnInit {
       this.user = user;
     });
     this.quizes = this.quizService.getAll();
-    this.quizName = this.quizes[0].id;
-    this.loadQuiz(this.quizName);
+    // this.quizName = this.quizes[0].id;
+    // this.loadQuiz(this.quizName);
+    // console.log(this.quizName);
 
+  }
+
+  //youtube
+
+  openMyVideo(id) {
+    this.youtube.openVideo(id);
   }
 
   // test
@@ -90,12 +104,14 @@ export class BabyDetailPage implements OnInit {
 
   // Baby Details
 
+
   getBaby(babyId: string) {
     this.babyService.getBaby(babyId).subscribe((baby: any) => {
       if (!baby) {
         this.navCtrl.navigateRoot(['tabs', 'followup']);
       }
       this.baby = baby;
+      this.getQuiz();
     });
 
   }
@@ -193,11 +209,48 @@ export class BabyDetailPage implements OnInit {
     const today = Date.now();
     const alive = today - dateOfBirth;
     const month = Math.floor(alive / 2629743000);
-
     return month;
   }
 
   // Quiz
+
+  getQuiz() {
+    console.log(this.baby);
+    const months = this.ageFromDateOfBirthday(this.baby.dateofbirth);
+
+    if (months <= 2) {
+      this.loadQuiz('/assets/data/m2.json');
+    }
+    if (months > 2 && months <= 4) {
+      this.loadQuiz('/assets/data/m4.json');
+    }
+    if (months > 4 && months <= 6) {
+      this.loadQuiz('/assets/data/m6.json');
+    }
+    if (months > 6 && months <= 9) {
+      this.loadQuiz('/assets/data/m9.json');
+    }
+    if (months > 9 && months <= 12) {
+      this.loadQuiz('/assets/data/y1.json');
+    }
+    if (months > 12 && months <= 18) {
+      this.loadQuiz('/assets/data/y1.json');
+    }
+    if (months > 18 && months <= 24) {
+      this.loadQuiz('/assets/data/y2.json');
+    }
+    if (months > 24 && months <= 36) {
+      this.loadQuiz('/assets/data/y3.json');
+    }
+    if (months > 36 && months <= 48) {
+      this.loadQuiz('/assets/data/y4.json');
+    }
+    if (months > 48 && months <= 60) {
+      this.loadQuiz('/assets/data/y5.json');
+    }
+    console.log(months);
+  }
+
 
   loadQuiz(quizName: string) {
     this.quizService.get(quizName).subscribe(res => {
@@ -268,10 +321,12 @@ export class BabyDetailPage implements OnInit {
   }
 
 
+
   async updateBaby() {
 
     const updatedBaby = {
-      responses: this.baby.responses
+      responses: this.baby.responses,
+      notes: this.baby.notes
     };
 
     try {
@@ -282,4 +337,5 @@ export class BabyDetailPage implements OnInit {
     }
 
   }
+
 }

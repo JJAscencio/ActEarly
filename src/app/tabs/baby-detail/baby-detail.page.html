@@ -46,25 +46,30 @@
     <div class="row">
 
       <div class="col-12 text-center px-5 pt-3">
-        <select [(ngModel)]="quizName" (change)="loadQuiz(quizName)" class="custom-select">
-          <option *ngFor="let quiz of quizes" [value]="quiz.id">{{quiz.name}}</option>
-        </select>
+        <h4>{{quiz.name}}</h4>
       </div>
     </div>
+
     <div id="quiz">
       <hr py-1 />
-
       <div *ngIf="mode=='quiz' && quiz">
         <div *ngFor="let question of filteredQuestions;">
+          <div>
+
+          </div>
           <div class="text-center py-3">
             <div class="badge badge-info">Question {{pager.index + 1}} of {{pager.count}}.</div>
           </div>
+
+          <p>Here goes the Video link<br>
+            <ion-button (click)="openMyVideo('rhQmy93LZH8')">Open Video</ion-button>
+          </p>
+
           <!-- <div *ngIf="config.duration" class="badge badge-info float-right">Time: {{ellapsedTime}} / {{duration}}</div> -->
           <h3 class="font-weight-bold px-3" style="font-size: 1rem; text-align: center">{{pager.index + 1}}.
             <span [innerHTML]="question.name" style="font-size:1.125rem"></span>
           </h3>
           <div class="row text-left options mx-0 px-4 py-2">
-
             <ion-radio-group allow-empty-selection="true" name="radio-group" (ionChange)="radioGroupChange($event)"
               #radioGroup>
               <ion-item lines="none" *ngFor="let option of question.options">
@@ -73,6 +78,12 @@
               </ion-item>
             </ion-radio-group>
           </div>
+
+          <div class="row mx-4 py-3 ">
+            <textarea class="form-control py-2" id="exampleFormControlTextarea1" style="resize: none;"
+              rows="3"></textarea>
+          </div>
+
           <div class="text-center">
             <button class="btn btn-default mx-1" *ngIf="config.allowBack" (click)="goTo(0);">First</button>
             <button class="btn btn-default mx-1" *ngIf="config.allowBack" (click)="goTo(pager.index - 1);">Prev</button>
@@ -86,7 +97,8 @@
 
       <div class="row text-center" *ngIf="mode=='review'">
         <div class="col-4 cursor-pointer" *ngFor="let question of quiz.questions; let index = index;">
-          <div (click)="goTo(index)" class="p-3 mb-2 {{ isAnswered(question) == 'Answered'? 'bg-info': 'bg-warning' }}">
+          <div (click)="goTo(index)" class="p-3 mb-2">
+            <!--{{ isAnswered(question) == 'Answered'? 'bg-info': 'bg-warning' }}-->
             {{index + 1}}. {{ isAnswered(question) }}</div>
         </div>
       </div>
@@ -105,8 +117,9 @@
             <!-- <div class="p-1 m-2 alert {{ isCorrect(question) == 'correct'? 'alert-success': 'alert-danger'}}">Your
               answer is {{isCorrect(question)}}.</div> -->
           </div>
+
         </div>
-        <h4 class="alert alert-info text-center">You may close this window now.</h4>
+        <!-- <h4 class="alert alert-info text-center">You may close this window now.</h4> -->
       </div>
       <hr />
       <!-- <div *ngIf="mode!='result'">

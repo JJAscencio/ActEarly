@@ -15,34 +15,37 @@
 
 
 <ion-content>
-    <ion-list>
+    <ion-list class="ion-no-padding">
         <div class="my-2" *ngFor="let baby of babys">
-            <ion-item lines="none">
-                <div class="square">
-                    <p style="text-align: center; color: white; font-size: small; font-weight: bold" class="my-3">
+            <ion-item class="ion-no-padding">
+                <div class=" square">
+                    <p style="text-align: center; color: white; font-size: small; font-weight: bold" class="my-4">
                         {{ageFromDateOfBirthday(baby?.dateofbirth)}} <br>
                         {{ ageFromDateOfBirthday(baby?.dateofbirth) === 1 ? 'mes' : 'meses' }} </p>
                 </div>
-                <!-- <slot name="start">
-                    <ion-item-options side="start">
-                        <ion-item-option (click)="presentEditModal(baby?.id)" color="primary">Edit</ion-item-option>
-                    </ion-item-options>
-                    <ion-thumbnail>
-                        <img src='https://cdn4.iconfinder.com/data/icons/baby-65/512/baby20-512.png'
-                            (click)="goToBabyProfile(baby?.id)">
-                    </ion-thumbnail>
-                </slot> -->
                 <ion-label class="babysep">
                     <h2>{{ baby?.name }}</h2>
                     <!-- <h2>{{ baby?.lname }}</h2> -->
                     <ion-note>{{baby?.sex}} &middot;</ion-note>
+                    <div class="options">
+                        <ion-label style="font-size: 10px; text-align: right;">
+                            <ion-icon (click)="openModalEdit(baby?.id)" slot="end" name="pencil-outline"
+                                style="font-size: 15px; padding: 0px 5px 0px 5px;">
+                            </ion-icon>EDITAR
+                            <ion-icon (click)="deleteBaby(baby?.id)" slot="end" name="trash-outline"
+                                style="font-size: 15px; padding: 0px 5px 0px 5px;">
+                            </ion-icon>ELIMINAR
+                        </ion-label>
+                    </div>
                 </ion-label>
+
                 <ion-note slot="end" class="arrow-icon">
                     <ion-icon name="chevron-forward-outline" (click)="goToBabyProfile(baby?.id)"></ion-icon>
                 </ion-note>
-                <ion-item-options side="end">
-                    <ion-item-option (click)="deleteBaby(baby?.id)" color="danger">Delete</ion-item-option>
-                </ion-item-options>
+
+                <div>
+
+                </div>
             </ion-item>
         </div>
     </ion-list>

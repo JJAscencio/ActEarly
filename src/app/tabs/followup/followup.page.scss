@@ -48,16 +48,23 @@ ion-content ion-toolbar {
 
 ion-item {
   padding: 0px 0px 0px 0px;
+  --border-width: 1px 0px 0px 0px;
 }
 
 .square {
   display: inline-block;
-  height: 80px;
+  height: 100px;
   width: 80px;
-  background-color: rgb(10, 75, 172);
+  background-color: #b19cd9;
 
 }
 
+.options {
+  padding: 5px 5px 5px 5px;
+  text-align: right;
+}
+
 ion-label {
-  padding: 0px 10px 0px 10px;
+
+  padding: 0px 0px 0px 10px;
 }

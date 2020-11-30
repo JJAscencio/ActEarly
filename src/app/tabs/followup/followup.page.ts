@@ -104,9 +104,19 @@ export class FollowupPage implements OnInit {
 
   deleteBaby(babyId: string): void {
     this.babyService.deleteBaby(babyId).then(() => {
-      this.presentAlert('Success!', 'Your To-Do has been deleted successfully.');
+      this.presentAlert('Exito!', 'Se a borrado el perfil del bebe!');
     }).catch((error) => {
       this.presentAlert('Error!', error);
     });
+  }
+
+  async openModalEdit(baby: string) {
+    const modal = await this.modalCtrl.create({
+      component: EditBabyPage,
+      componentProps: {
+        bID: baby
+      }
+    });
+    return await modal.present();
   }
 }

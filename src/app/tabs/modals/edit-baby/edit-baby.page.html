@@ -1,8 +1,10 @@
-<ion-header>
+<ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
-    </ion-buttons>
+
+    <ion-button slot="start" fill="clear" expand="full" (click)="closeModal()">
+      <ion-icon name="arrow-back-outline"></ion-icon>
+    </ion-button>
+
     <ion-title>Editar perfil de {{baby?.name}}</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -70,15 +72,10 @@
 
       <ion-row>
         <ion-col size="12">
-          <ion-button color="success" expand="block" fill="solid" (click)="updateBaby()">Guardar Cambios</ion-button>
+          <ion-button color="primary" expand="block" fill="solid" (click)="updateBaby()">Guardar Cambios</ion-button>
         </ion-col>
 
         <br>
-
-        <ion-col size="12">
-          <ion-button expand="block" (click)="closeModal()" fill="solid">Cancelar
-          </ion-button>
-        </ion-col>
 
       </ion-row>
 
